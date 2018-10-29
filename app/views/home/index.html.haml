@@ -4,3 +4,7 @@
     - @msu1_pcm_tracks.each do |msu1_pcm_track|
       %tr
         %td= msu1_pcm_track.filename
+        %td
+          %a{href: '#'}
+            = application_icon(:download, size: :lg)
+            Download
