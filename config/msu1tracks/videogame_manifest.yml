@@ -1,0 +1,6 @@
+consoles:
+  nes:
+    friendly_name: NES 
+    videogames:
+      legacy_of_the_wizard:
+        friendly_name: Legacy of the Wizard
