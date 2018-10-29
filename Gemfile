@@ -59,8 +59,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added Gems
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'haml'
-gem 'therubyracer'
+gem 'mini_racer'
 gem 'mysql2'

@@ -4,9 +4,9 @@ class Msu1PcmTrack < MusicTrack
     filenames      = Dir[music_file_dir.join('**', '*.pcm')]
 
     videogame_cache      = Videogame.all_indexed_by(:name, parent_index: {console: :name})
-    music_files_3_tuples = Msu1PcmTrack.console_videogame_music_file_3_tuples
+    music_files_3_tuples = self.console_videogame_music_file_3_tuples
     
-    Msu1PcmTrack.transaction {
+    self.transaction {
       filenames.each {|filename|
         filename_without_prefix = filename.sub(/^#{music_file_dir.to_s}/, '')
         filename_parts          = filename_without_prefix.split('/')
@@ -16,7 +16,7 @@ class Msu1PcmTrack < MusicTrack
         music_filename = Pathname.new(filename).basename('.pcm').to_s
 
         unless music_files_3_tuples.member?([console_name, videogame_name, music_filename])
-          new_music_file = Msu1PcmTrack.create(
+          new_music_file = self.create(
             filename:  music_filename,
             videogame: videogame_cache.dig(console_name, videogame_name),
           )
