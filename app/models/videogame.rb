@@ -1,6 +1,7 @@
 class Videogame < ApplicationRecord
   # associations
   belongs_to :console
+  has_many :music_tracks
 
   # scopes
   default_scope { includes(:console) }

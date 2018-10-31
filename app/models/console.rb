@@ -1,4 +1,7 @@
 class Console < ApplicationRecord
+  # associations
+  has_many :videogames
+  has_many :music_tracks, through: :videogames
   
   # class methods
   def self.sync_manifest_with_database
