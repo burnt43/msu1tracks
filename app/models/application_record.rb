@@ -1,18 +1,33 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  def self.all_indexed_by(attribute_name, options={})
-    if options.has_key?(:parent_index)
-      association_name      = options[:parent_index].keys.first
-      association_attribute = options[:parent_index].values.first
+  def self.all_indexed_by(*args)
+    hash       = Hash.new
+    sub_hash   = hash
+    last_index = args.length - 1
 
-      self.all.joins(association_name).each_with_object(Hash.new) {|object, hash|
-        (hash[object.send(association_name).send(association_attribute)] ||= Hash.new)[object.send(attribute_name)] = object
+    self.all.each {|object|
+      args.each_with_index {|arg, index|
+        sub_hash = (if arg.is_a?(Hash)
+          key = object.send(arg.keys.first).send(arg.values.first)
+          if index == last_index
+            sub_hash[key] ||= object
+            hash
+          else
+            sub_hash[key] ||= Hash.new
+          end
+        else
+          key = object.send(arg)
+          if index == last_index
+            sub_hash[key] ||= object
+            hash
+          else
+            sub_hash[key] ||= Hash.new
+          end
+        end)
       }
-    else
-      self.all.each_with_object(Hash.new) {|object, hash|
-        hash[object.send(attribute_name)] = object
-      }
-    end
+    }
+
+    hash
   end
 end

@@ -1,18 +1,26 @@
 namespace :msu1tracks do
-  task :sync_consoles => [:environment] do
+  def set_logger
     Rails.logger = Logger.new(STDOUT)
+    Rails.logger.level = Logger::INFO
+    Rails.logger.formatter = proc {|severity, datetime, progname, msg|
+      "#{msg}\n"
+    }
+  end
+
+  task :sync_consoles => [:environment] do
+    set_logger
     Console.sync_manifest_with_database
   end
 
   task :sync_videogames => [:environment] do
-    Rails.logger = Logger.new(STDOUT)
+    set_logger
     Videogame.sync_manifest_with_database
   end
 
-  task :sync_files_with_database=> [:environment] do
-    Rails.logger = Logger.new(STDOUT)
-    Msu1PcmTrack.sync_files_with_database
+  task :sync_music_files_with_database=> [:environment] do
+    set_logger
+    MusicTrack.children.each(&:sync_files_with_database)
   end
 
-  task :sync_all => [:sync_consoles, :sync_videogames, :sync_files_with_database]
+  task :sync_all => [:sync_consoles, :sync_videogames, :sync_music_files_with_database]
 end
