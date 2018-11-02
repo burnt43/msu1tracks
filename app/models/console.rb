@@ -1,25 +1,31 @@
 class Console < ApplicationRecord
+  include SyncFromYaml
+
   # associations
   has_many :videogames
   has_many :music_tracks, through: :videogames
   
-  # class methods
-  def self.sync_manifest_with_database
-    yaml          = YAML.load(IO.read(Videogame.manifest_pathname))
-    console_cache = Console.all_indexed_by(:name)
+  # instance methods
+  def to_s
+    "#<#{self.class.name} id:#{self.id} friendly_name:#{self.friendly_name}>"
+  end
 
+  # SyncFromYaml
+  define_active_record_to_yaml_attributes_map :friendly_name, :friendly_name
+
+  self.indexed_objects_for_yaml_sync = ->{
+    self.all_indexed_by(:name)
+  }
+
+  def self.sync_manifest_with_database
     self.transaction {
-      (yaml.dig('consoles') || Hash.new).each {|console_name, console_config|
-        unless console_cache.has_key?(console_name)
-          new_console = self.create(name: console_name, friendly_name: console_config['friendly_name'])
-          Rails.logger.info "\033[0;32mcreating\033[0;0m #{new_console.to_s}"
+      (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
+        if console = self.indexed_objects_for_yaml_sync[console_name]
+          console.update_attributes_from_yaml(console_config)
+        else
+          self.create_from_yaml({name: console_name}, console_config)
         end
       }
     }
   end
-
-  # instance methods
-  def to_s
-    "#<#{self.class.name} #{self.friendly_name}>"
-  end
-end
+end # Console 

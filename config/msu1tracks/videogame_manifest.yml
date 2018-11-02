@@ -10,7 +10,8 @@ consoles:
       a_link_to_the_past:
         friendly_name: A Link to the Past
         msu1_patch:
-          - name: Standard
+          standard:
+            friendly_name: Standard
             tracks:
               1:  Triforce / Title Screen
               2:  Lightworld
@@ -44,128 +45,130 @@ consoles:
               30: Face to Face + Ganon's Theme
               31: Ganon Battle
           msu1_packs:
-            - name:  Legacy of the Wizard
-              1: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              2: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              3: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              4: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              5: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              6: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              7: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              8: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              9: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              10: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              11: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              12: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              13: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              14: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              15: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              16: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              17: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              18: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              19: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              20: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              21: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              22: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              23: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              24: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              25: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              26: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              27: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              28: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              29: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              30: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              31: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+            legacy_of_the_wizard:
+              name:  Legacy of the Wizard
+              mapping:
+                1: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                2: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                3: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                4: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                5: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                6: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                7: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                8: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                9: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                10: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                11: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                12: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                13: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                14: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                15: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                16: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                17: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                18: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                19: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                20: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                21: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                22: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                23: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                24: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                25: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                26: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                27: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                28: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                29: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                30: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen
+                31: 
+                  console:   nes
+                  videogame: legacy_of_the_wizard
+                  track:     0010_title_screen

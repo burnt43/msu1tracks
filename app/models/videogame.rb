@@ -1,4 +1,6 @@
 class Videogame < ApplicationRecord
+  include SyncFromYaml
+
   # associations
   belongs_to :console
   has_many :music_tracks
@@ -6,34 +8,29 @@ class Videogame < ApplicationRecord
   # scopes
   default_scope { includes(:console) }
 
-  # class methods
-  def self.manifest_pathname
-    Rails.root.join('config', 'msu1tracks', 'videogame_manifest.yml')
+  # instance methods
+  def to_s
+    "#<#{self.class.name} id:#{self.id} console.friendly_name:#{self.console.friendly_name} friendly_name:#{self.friendly_name}>"
   end
 
-  def self.sync_manifest_with_database
-    yaml            = YAML.load(IO.read(self.manifest_pathname))
-    videogame_cache = Videogame.all_indexed_by({console: :name}, :name)
-    console_cache   = Hash.new
+  # SyncFromYaml
+  define_active_record_to_yaml_attributes_map :friendly_name, :friendly_name
 
+  self.indexed_objects_for_yaml_sync = ->{
+    self.all_indexed_by({console: :name}, :name)
+  }
+
+  def self.sync_manifest_with_database
     self.transaction {
-      (yaml.dig('consoles') || Hash.new).each {|console_name, console_config|
+      (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
         (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
-          unless videogame_cache.dig(console_name, videogame_name)
-            new_videogame = self.create(
-              name:          videogame_name,
-              friendly_name: videogame_config['friendly_name'], 
-              console:       console_cache[console_name] ||= Console.find_by(name: console_name),
-            )
-            Rails.logger.info "\033[0;32mcreating\033[0;0m #{new_videogame.to_s}"
+          if videogame = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name)
+            videogame.update_attributes_from_yaml(videogame_config)
+          else
+            self.create_from_yaml({name: videogame_name, console: Console.indexed_objects_for_yaml_sync.dig(console_name)}, videogame_config)
           end
         }
       }
     }
   end
-
-  # instance methods
-  def to_s
-    "#<#{self.class.name} #{self.console.friendly_name}/#{self.friendly_name}>"
-  end
-end
+end # Videogame 

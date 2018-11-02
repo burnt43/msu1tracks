@@ -21,7 +21,10 @@
             %a.nav-link{href: '#'} 
               = application_icon(:home)
               Home
-    .container-fluid
-      .row
-        .col-md-10.col-md-offset-1
-          = yield
+    .container
+      = yield
+    -#
+      .container-fluid
+        .row
+          .col-md-10.col-md-offset-1
+            = yield
