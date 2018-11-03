@@ -19,6 +19,7 @@ class Console < ApplicationRecord
 
   def self.sync_manifest_with_database
     self.transaction {
+      # add/update
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
         if console = self.indexed_objects_for_yaml_sync[console_name]
           console.update_attributes_from_yaml(console_config)

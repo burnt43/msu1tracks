@@ -22,6 +22,7 @@ class Videogame < ApplicationRecord
 
   def self.sync_manifest_with_database
     self.transaction {
+      # add/update
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
         (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
           if videogame = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name)

@@ -10,13 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_28_225301) do
+ActiveRecord::Schema.define(version: 2018_11_03_041635) do
 
   create_table "consoles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "friendly_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "msu1_patch_tracks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.integer "track_number", null: false
+    t.string "friendly_name", null: false
+    t.bigint "msu1_patch_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["msu1_patch_id"], name: "index_msu1_patch_tracks_on_msu1_patch_id"
+  end
+
+  create_table "msu1_patches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "friendly_name", null: false
+    t.bigint "videogame_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["videogame_id"], name: "index_msu1_patches_on_videogame_id"
   end
 
   create_table "music_tracks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|

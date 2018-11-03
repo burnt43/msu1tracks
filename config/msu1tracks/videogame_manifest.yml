@@ -9,44 +9,75 @@ consoles:
     videogames:
       a_link_to_the_past:
         friendly_name: A Link to the Past
-        msu1_patch:
+        msu1_patches:
           standard:
             friendly_name: Standard
             tracks:
-              1:  Triforce / Title Screen
-              2:  Lightworld
-              3:  Rain
-              4:  Dark World (Rabbit)
-              5:  Lost Woods
-              6:  Introduction
-              7:  Kakariko Village
-              8:  Portal
-              9:  Dark World (Moon Pearl)
-              10: Master Sword
-              11: File Select Screen
-              12: Guards Attacking
-              13: Skull Woods / Dark Death Mountain
-              14: Minigame
-              15: Title Screen
-              16: Hyrule Castle
-              17: Pendant Dungeon
-              18: Cave 1
-              19: Dungeon Cleared
-              20: Sanctuary
-              21: Boss Fight
-              22: Crystal Dungeon
-              23: Fortune Teller
-              24: Cave 2
-              25: Zelda Rescued
-              26: Crystal Acquired
-              27: Fairy
-              28: Ganon's Theme Only
-              29: Ganon Appears
-              30: Face to Face + Ganon's Theme
-              31: Ganon Battle
+              1:  
+                friendly_name: Triforce / Title Screen
+              2:  
+                friendly_name: Lightworld
+              3:  
+                friendly_name: Rain
+              4:  
+                friendly_name: Dark World (Rabbit)
+              5:  
+                friendly_name: Lost Woods
+              6:  
+                friendly_name: Introduction
+              7:  
+                friendly_name: Kakariko Village
+              8:  
+                friendly_name: Portal
+              9:  
+                friendly_name: Dark World (Moon Pearl)
+              10: 
+                friendly_name: Master Sword
+              11: 
+                friendly_name: File Select Screen
+              12: 
+                friendly_name: Guards Attacking
+              13: 
+                friendly_name: Skull Woods / Dark Death Mountain
+              14: 
+                friendly_name: Minigame
+              15: 
+                friendly_name: Title Screen
+              16: 
+                friendly_name: Hyrule Castle
+              17: 
+                friendly_name: Pendant Dungeon
+              18: 
+                friendly_name: Cave 1
+              19: 
+                friendly_name: Dungeon Cleared
+              20: 
+                friendly_name: Sanctuary
+              21: 
+                friendly_name: Boss Fight
+              22: 
+                friendly_name: Crystal Dungeon
+              23: 
+                friendly_name: Fortune Teller
+              24: 
+                friendly_name: Cave 2
+              25: 
+                friendly_name: Zelda Rescued
+              26: 
+                friendly_name: Crystal Acquired
+              27: 
+                friendly_name: Fairy
+              28: 
+                friendly_name: Ganon's Theme Only
+              29: 
+                friendly_name: Ganon Appears
+              30: 
+                friendly_name: Face to Face + Ganon's Theme
+              31: 
+                friendly_name: Ganon Battle
           msu1_packs:
             legacy_of_the_wizard:
-              name:  Legacy of the Wizard
+              friendly_name:  Legacy of the Wizard
               mapping:
                 1: 
                   console:   nes
