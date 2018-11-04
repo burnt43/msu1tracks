@@ -7,7 +7,7 @@ class Console < ApplicationRecord
   
   # instance methods
   def to_s
-    "#<#{self.class.name} id:#{self.id} friendly_name:#{self.friendly_name}>"
+    "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"
   end
 
   # SyncFromYaml

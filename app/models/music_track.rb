@@ -1,9 +1,7 @@
 class MusicTrack < ApplicationRecord
   # associations
   belongs_to :videogame
-
-  # delegations
-  delegate :console, to: :videogame
+  has_one :console, through: :videogame
 
   # scopes
   default_scope { includes(videogame: [:console]) }
@@ -77,6 +75,6 @@ class MusicTrack < ApplicationRecord
   end
 
   def to_s
-    "#<#{self.class.name} #{self.console.friendly_name}/#{self.videogame.friendly_name}/#{self.filename}.#{self.class.file_extension}>"
+    "#<#{self.class.name} console.friendly_name:\033[0;35m#{self.console.friendly_name}\033[0;0m videogame.friendly_name:\033[0;35m#{self.videogame.friendly_name}\033[0;0m filename:\033[0;35m#{self.filename}.#{self.class.file_extension}\033[0;0m>"
   end
 end

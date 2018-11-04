@@ -10,7 +10,7 @@ class Videogame < ApplicationRecord
 
   # instance methods
   def to_s
-    "#<#{self.class.name} id:#{self.id} console.friendly_name:#{self.console.friendly_name} friendly_name:#{self.friendly_name}>"
+    "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m console.friendly_name:\033[0;35m#{self.console.friendly_name}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"
   end
 
   # SyncFromYaml
@@ -21,6 +21,8 @@ class Videogame < ApplicationRecord
   }
 
   def self.sync_manifest_with_database
+    Console.indexed_objects_for_yaml_sync(reload: true)
+
     self.transaction {
       # add/update
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|

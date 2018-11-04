@@ -31,8 +31,12 @@ module SyncFromYaml
     def indexed_objects_for_yaml_sync=(_proc)
       @indexed_objects_for_yaml_sync_proc = _proc
     end
-    def indexed_objects_for_yaml_sync
-      @indexed_objects_for_yaml_sync ||= @indexed_objects_for_yaml_sync_proc.call 
+    def indexed_objects_for_yaml_sync(options={})
+      if options[:reload]
+        @indexed_objects_for_yaml_sync = @indexed_objects_for_yaml_sync_proc.call 
+      else
+        @indexed_objects_for_yaml_sync ||= @indexed_objects_for_yaml_sync_proc.call 
+      end
     end
     def _indexed_objects_for_yaml_sync
       raise 'Implement in Class!'

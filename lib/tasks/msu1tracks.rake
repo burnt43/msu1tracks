@@ -17,10 +17,21 @@ namespace :msu1tracks do
     Videogame.sync_manifest_with_database
   end
 
+  task :sync_msu1_patches => [:environment] do
+    set_logger
+    Msu1Patch.sync_manifest_with_database
+  end
+
+  task :sync_msu1_patch_tracks => [:environment] do
+    set_logger
+    Msu1Patch::Track.sync_manifest_with_database
+  end
+
+
   task :sync_music_files_with_database=> [:environment] do
     set_logger
     MusicTrack.children.each(&:sync_files_with_database)
   end
 
-  task :sync_all => [:sync_consoles, :sync_videogames, :sync_music_files_with_database]
+  task :sync_all => [:sync_consoles, :sync_videogames, :sync_msu1_patches, :sync_msu1_patch_tracks, :sync_music_files_with_database]
 end
