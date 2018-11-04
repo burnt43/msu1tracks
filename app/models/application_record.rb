@@ -1,5 +1,10 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+  ICON_YAML = YAML.load(IO.read(Rails.root.join('config', 'msu1tracks', 'icons.yml')))
+
+  def self.icon_class
+    ICON_YAML.dig('icons', 'models', self.model_name.param_key)
+  end
 
   def self.all_indexed_by(*args)
     hash       = Hash.new

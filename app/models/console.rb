@@ -4,6 +4,9 @@ class Console < ApplicationRecord
   # associations
   has_many :videogames
   has_many :music_tracks, through: :videogames
+
+  # scope
+  scope :has_videogames_with_music_tracks, -> { self.joins(videogames: [:music_tracks]).group(:id).having("COUNT(*) > 1") }
   
   # instance methods
   def to_s

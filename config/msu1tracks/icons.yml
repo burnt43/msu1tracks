@@ -2,3 +2,5 @@ icons:
   download: fa-download
   home:     fa-home
   music:    fa-music
+  models:
+    console: fa-gamepad

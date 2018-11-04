@@ -62,5 +62,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'haml'
+gem 'jquery-rails'
 gem 'mini_racer'
 gem 'mysql2'
