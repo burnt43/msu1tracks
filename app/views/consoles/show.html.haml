@@ -1,1 +1,19 @@
-%h1 TEST
+.card.mt-2
+  .card-body
+    %h5.card-title= "#{Console.model_name.human}: #{@console.friendly_name}"
+  %table.table
+    %thead
+      %th= Videogame.human_attribute_name(:friendly_name)
+      %th= I18n.t(:last_change)
+      %th= I18n.t(:download)
+    %tbody
+      - @console.videogames.each do |videogame|
+        %tr
+          %td
+            %a{href: videogame_path(videogame)}= videogame.friendly_name
+          %td
+            = videogame.most_recently_updated_music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+          %td
+            %a{href: download_music_tracks_videogame_path(videogame)}
+              = application_icon(:download, size: :lg)
+              = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"

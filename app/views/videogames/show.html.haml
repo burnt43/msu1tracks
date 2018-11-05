@@ -1,0 +1,27 @@
+.card.mt-2
+  .card-body
+    %h5.card-title 
+      = "#{Console.model_name.human}:"
+      %a{href: console_path(@videogame.console)}
+        = @videogame.console.friendly_name
+      \/ 
+      = "#{Videogame.model_name.human}:"
+      = @videogame.friendly_name
+    %a.card-text{href: download_music_tracks_videogame_path(@videogame)}
+      = application_icon(:download, size: :lg)
+      = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
+      
+  %table.table
+    %thead
+      %th= MusicTrack.human_attribute_name(:filename)
+      %th= I18n.t(:last_change)
+      %th= I18n.t(:download)
+    %tbody
+      - @videogame.music_tracks.order(filename: :asc).each do |music_track|
+        %tr
+          %td= music_track.filename
+          %td= music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+          %td
+            %a{href: download_music_track_path(music_track)}
+              = application_icon(:download, size: :lg)
+              = "Download #{music_track.class.model_name.human}"

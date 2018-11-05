@@ -1,276 +1,30 @@
-%h3 Some Other Shit
-.row
-  .col-8.offset-2
-    %h1 H1
-    %h2 H2
-    %h3 H3
-    %h4 H4
-    %h5 H5
-    %h6 H6
-    %dl
-      %dt Title
-      %dd Description
-    %pre PRE FORMATTED
-    %table
-      %caption this is a caption!
-      %thead
-        %th Col1
-        %th Col2
-      %tbody
-        %td Col1
-        %td Col2
-    %form
-      %fieldset
-        %legend this is a legend
-        %p hey dudes
-    %address
-      %strong Some Place
-      %br 123 Fake Street
-      %br Springfield, USA
-    %blockquote.blockquote
-      %p this is a quote. this is a quote. this is a quote. this is a quote. this is a quote. this is a quote. 
-      %footer Joe Blow
-      %cite American Textbook
-    %p
-      hey everybody lets go to 
-      %abbr{title: 'United States of America'} USA
-    %details
-      %summary Title
-      %p this is a description
-%hr
-%h3 Media Objects
-%hr
-.media
-  = application_icon(:download, size: '4x', class: 'mr-3 align-self-start')
-  .media-body
-    %h5.mt-0 HEADING
-    this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-.media
-  = application_icon(:download, size: '4x', class: 'mr-3 align-self-center')
-  .media-body
-    %h5.mt-0 HEADING
-    this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-.media
-  = application_icon(:download, size: '4x', class: 'mr-3 align-self-end')
-  .media-body
-    %h5.mt-0 HEADING
-    this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-.media
-  .media-body
-    %h5.mt-0 HEADING
-    this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-  = application_icon(:download, size: '4x', class: 'mr-3 align-self-start')
-%ul.list-unstyled
-  %li.media
-    = application_icon(:home, size: '4x', class: 'mr-3 align-self-start')
-    .media-body
-      %h5.mt-0 HEADING
-      this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-  %li.media.invisible
-    = application_icon(:home, size: '4x', class: 'mr-3 align-self-start')
-    .media-body
-      %h5.mt-0 HEADING
-      this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. this is the content. 
-%h3 Nesting
-%hr
-.row
-  .col-9
-    .row
-      .col-6
-        .alert.alert-info HELLO
-      .col-6
-        .alert.alert-info HELLO
-  .col-3
-    .row
-      .col-6
-        .alert.alert-info HELLO
-      .col-6
-        .alert.alert-info HELLO
-%h3 Mr Auto?
-%hr
-.row
-  .col-4
-    .alert.alert-dark HELLO
-  .col-6.ml-auto
-    .alert.alert-dark HELLO
-.row
-  .col-4.mr-auto
-    .alert.alert-dark HELLO
-  .col-3
-    .alert.alert-dark HELLO
-%h3 Offsets
-%hr
-.row
-  .col-4
-    .alert.alert-info HELLO
-  .col-4.offset-4
-    .alert.alert-info HELLO
-%h3 Ordering
-%hr
-.row
-  .order-2.order-lg-1.col-lg-4
-    .alert.alert-dark Left Content
-  .order-1.order-lg-2.col-lg-4
-    .alert.alert-dark Important Center Content
-  .order-3.order-lg-3.col-lg-4
-    .alert.alert-dark Right Content
-  .order-4.order-lg-4.col-lg-12
-    .alert.alert-dark Bottom Content
-%h3 Wrapping 2
-%hr
-.row
-  .col-3.col-lg-6
-    .alert.alert-info HELLO
-  .col-3.col-lg-6
-    .alert.alert-info HELLO
-  .w-100.d-none.d-lg-block
-  .col-3.col-lg-6
-    .alert.alert-info HELLO
-  .col-3.col-lg-6
-    .alert.alert-info HELLO
-%h3 Column Wrapping
-%hr
-.row
-  .col-10
-    .alert.alert-dark 10
-  .col-4
-    .alert.alert-dark 4
-  .col-8
-    .alert.alert-dark 8
-%h3 No Gutters
-%hr
-.row.no-gutters
-  .col
-    .alert.alert-info No Gutters
-  .col
-    .alert.alert-info No Gutters
-  .col
-    .alert.alert-info No Gutters
-%h3 Horizontal Alignment
-%hr
-.row.justify-content-start
-  .col-4
-    .alert.alert-dark 1/2
-  .col-4
-    .alert.alert-dark 2/2
-.row.justify-content-center
-  .col-4
-    .alert.alert-dark 1/2
-  .col-4
-    .alert.alert-dark 2/2
-.row.justify-content-end
-  .col-4
-    .alert.alert-dark 1/2
-  .col-4
-    .alert.alert-dark 2/2
-.row.justify-content-around
-  .col-4
-    .alert.alert-dark 1/2
-  .col-4
-    .alert.alert-dark 2/2
-.row.justify-content-between
-  .col-4
-    .alert.alert-dark 1/2
-  .col-4
-    .alert.alert-dark 2/2
-%h3 Vertical Alignment
-%hr
-.row.align-items-start{style: "background-color: #ff0000;"}
-  .col
-    .alert.alert-info 1 of 3
-  .col
-    .alert.alert-info 2 of 3
-  .col
-    .alert.alert-info 3 of 3
-.row.align-items-center{style: "background-color: #00ff00;"}
-  .col
-    .alert.alert-info 1 of 3
-  .col
-    .alert.alert-info 2 of 3
-  .col
-    .alert.alert-info 3 of 3
-.row.align-items-end{style: "background-color: #0000ff;"}
-  .col
-    .alert.alert-info 1 of 3
-  .col
-    .alert.alert-info 2 of 3
-  .col
-    .alert.alert-info 3 of 3
-.row{style: "background-color: #ffff00;"}
-  .col.align-self-start
-    .alert.alert-info 1 of 3
-  .col.align-self-center
-    .alert.alert-info 2 of 3
-  .col.alilgn-self-end
-    .alert.alert-info 3 of 3
-%h3 Mix and Match
-%hr
-.row
-  .col-12.col-lg-6
-    .alert.alert-dark Foobar
-  .col-6.col-lg-6
-    .alert.alert-dark Foobar
-%h3 Variable Width
-%hr
-.row
-  .col-2
-    .alert.alert-info 1 of 3
-  .col-md-auto
-    .alert.alert-info Variable Length
-  .col-2
-    .alert.alert-info 3 of 3
-%h3 Column Width
-%hr
-.row
-  .col
-    .alert.alert-dark 1 of 3
-  .col-6
-    .alert.alert-dark 2 of 3 (Wider)
-  .col
-    .alert.alert-dark 3 of 3
-%h3 Multiple Lines
-%hr
-.row
-  .col
-    .alert.alert-info Column
-  .col
-    .alert.alert-info Column
-  .w-100
-  .col
-    .alert.alert-info Column
-  .col
-    .alert.alert-info Column
-%h3 Equal Sizing
-%hr
-.row
-  .col
-    .alert.alert-dark 1/2
-  .col
-    .alert.alert-dark 2/2
-.row
-  .col
-    .alert.alert-dark 1/3
-  .col
-    .alert.alert-dark 2/3
-  .col
-    .alert.alert-dark 3/3
-%h3 Basic Columns
-%hr
-.row
-  .col-lg
-    .alert.alert-info 1 of 3 Columns (lg)
-  .col-lg
-    .alert.alert-info 1 of 3 Columns (lg)
-  .col-lg
-    .alert.alert-info 1 of 3 Columns (lg)
--#
+.card.mt-2
+  .card-body
+    %h5.card-title News
+    .media
+      = application_icon(:news, size: 'lg', class: 'mr-3')
+      .media-body
+        %h5.mt-0 2018-11-04 Site Launch
+        %p
+          The purpose of this site is to store videogame music that I have converted to be able to play on a SNES or a SNES Emulator using the MSU-1 feature. Right now, I only have Legacy of the Wizard, an old NES game I had, converted to MSU-1 PCMs. I have a
+          %a{href: "https://github.com/burnt43/msu1tracks/issues/2"} feature
+          in the works that you can take an MSU-1 patch and mix and match whatever song in that game to a file I have hosted on this site. This means you'll be able to map the Light World song from Link to the Past to a song from Videogame A and then you can map the Dark World song to some song from Videogame B. You'll be able to create MSU-1 packs on the fly.
+.card.mt-2
+  .card-body
+    %h5.card-title= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
   %table.table
     %thead
+      %th
+      %th= Videogame.human_attribute_name(:friendly_name)
+      %th= I18n.t(:last_change)
+      %th= I18n.t(:download)
     %tbody
-      - @msu1_pcm_tracks.each do |msu1_pcm_track|
-        %tr
-          %td= msu1_pcm_track.filename
-          %td
-            %a{href: '#'}
-              = application_icon(:download, size: :lg)
-              Download
+      - Videogame.latest_n_changed(10).each_with_index do |videogame, index|
+        %td= index+1
+        %td
+          %a{href: videogame_path(videogame)}= videogame.friendly_name
+        %td= videogame.most_recently_updated_music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+        %td
+          %a{href: download_music_tracks_videogame_path(videogame)}
+            = application_icon(:download, size: :lg)
+            = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"

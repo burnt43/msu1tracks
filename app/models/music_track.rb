@@ -3,9 +3,6 @@ class MusicTrack < ApplicationRecord
   belongs_to :videogame
   has_one :console, through: :videogame
 
-  # scopes
-  default_scope { includes(videogame: [:console]) }
-
   # class methods
   def self.parent_directory
     Pathname.new(Rails.configuration.x.music_files.dir)
@@ -71,7 +68,19 @@ class MusicTrack < ApplicationRecord
   end
 
   def filename_with_extension
-    "#{self.filename}.#{self.class.file_extension}"
+    "#{self.filename}.#{self.file_extension}"
+  end
+
+  def file_extension
+    self.class.file_extension
+  end
+
+  def binary_data
+    file = File.open(self.pathname, 'r')
+    data = file.read
+    file.close
+
+    data
   end
 
   def to_s

@@ -2,5 +2,7 @@ icons:
   download: fa-download
   home:     fa-home
   music:    fa-music
+  news:     fa-newspaper-o
+  github:   fa-github
   models:
     console: fa-gamepad

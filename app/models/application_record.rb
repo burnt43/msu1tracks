@@ -1,4 +1,5 @@
 class ApplicationRecord < ActiveRecord::Base
+
   self.abstract_class = true
   ICON_YAML = YAML.load(IO.read(Rails.root.join('config', 'msu1tracks', 'icons.yml')))
 

@@ -9,7 +9,7 @@
 
   %body
     %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-      %a.navbar-brand{href: "#"} 
+      %a.navbar-brand{href: root_path} 
         = application_icon(:music, size: :lg)
         MSU-1 Tracks
       %button.navbar-toggler{type: "button", data: {toggle: "collapse", target: "#navbarSupportedContent"}, "aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation"}
@@ -17,27 +17,32 @@
 
       .collapse.navbar-collapse#navbarSupportedContent
         %ul.navbar-nav.mr-auto
-          %li.nav-item.active
-            %a.nav-link{href: "#"}
+          %li.nav-item{class: ('active' if self.controller_name == 'home')}
+            %a.nav-link{href: root_path}
               = application_icon(:home, size: :lg)
               Home 
               %span.sr-only (current)
           -#
             %li.nav-item
               %a.nav-link{href: "#"} Link
-          %li.nav-item.dropdown
+          %li.nav-item.dropdown{class: ('active' if self.controller_name == 'consoles')}
             %a.nav-link.dropdown-toggle#navbarDropdown{href: "#", role: "button", data: {toggle: "dropdown"}, "aria-haspopup" => "true", "aria-expanded" => "false"}
               = application_icon(Console, size: :lg)
               = Console.model_name.human.pluralize
             .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
               - Console.has_videogames_with_music_tracks.order(friendly_name: :asc).each do |console|
                 %a.dropdown-item{href: console_path(console)}= console.friendly_name
+          %li.nav-item
+            %a.nav-link{href: "https://github.com/burnt43/msu1tracks"}
+              = application_icon(:github, size: :lg)
+              Github
           -#
             %li.nav-item
               %a.nav-link.disabled{href: "#"} Disabled
-        %form.form-inline.my-2.my-lg-0
-          %input.form-control.mr-sm-2{type: "search", placeholder: "Search", "aria-label" => "Search"}
-          %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
+        -#
+          %form.form-inline.my-2.my-lg-0
+            %input.form-control.mr-sm-2{type: "search", placeholder: "Search", "aria-label" => "Search"}
+            %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
     .container
       = yield
     -#

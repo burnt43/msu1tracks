@@ -5,12 +5,32 @@ class Videogame < ApplicationRecord
   belongs_to :console
   has_many :music_tracks
 
-  # scopes
-  default_scope { includes(:console) }
+  # scope
+  scope :latest_n_changed, ->(n) { joins(:music_tracks).group(:id).order("MAX(`#{MusicTrack.table_name}`.`updated_at`)").limit(n) }
 
   # instance methods
   def to_s
     "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m console.friendly_name:\033[0;35m#{self.console.friendly_name}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"
+  end
+
+  def most_recently_updated_music_track
+    if self.music_tracks.loaded?
+      self.music_tracks.max_by {|music_track| music_track.updated_at}
+    else
+      self.music_tracks.order(updated_at: :desc).first
+    end
+  end
+
+  def create_archive_or_music_tracks!
+    tempfile = Tempfile.new([self.name, '.zip'])
+    
+    Zip::File.open(tempfile.to_path, Zip::File::CREATE) {|zipfile|
+      self.music_tracks.each {|music_track|
+        zipfile.add(music_track.filename, music_track.pathname.to_s)
+      }
+    }
+
+    tempfile
   end
 
   # SyncFromYaml
