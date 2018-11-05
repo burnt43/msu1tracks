@@ -6,3 +6,11 @@ development:
   password: vice*sage
   hostname: localhost
   database: msu1tracks_development
+production:
+  adapter:  mysql2
+  pool:     5
+  timeout:  5000
+  username: msu1tracks
+  password: ring*fold
+  hostname: localhost
+  database: msu1tracks_production

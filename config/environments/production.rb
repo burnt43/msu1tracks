@@ -93,5 +93,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Custom Config
-  config.x.music_files.dir = Pathname.new('/home/jcarson/msu1_audio')
+  config.x.music_files.dir = Pathname.new('/var/msu1_tracks/msu1_audio')
 end
