@@ -25,6 +25,6 @@
           %a{href: videogame_path(videogame)}= videogame.friendly_name
         %td= videogame.most_recently_updated_music_track.updated_at.strftime("%Y/%m/%d %H:%M")
         %td
-          %a{href: download_music_tracks_videogame_path(videogame)}
+          %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
             = application_icon(:download, size: :lg)
             = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"

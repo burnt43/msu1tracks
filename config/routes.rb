@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :download_music_tracks
     end
   end
+  match '/videogames/:id/:filename' => 'videogames#download_music_tracks', via: 'get'
 
   resources :music_tracks, only: [] do
     member do

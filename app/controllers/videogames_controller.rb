@@ -7,6 +7,7 @@ class VideogamesController < ApplicationController
     @videogame = Videogame.find(params[:id])
 
     temp_zip_file = @videogame.create_archive_or_music_tracks!
-    send_data(temp_zip_file.read, filename: temp_zip_file.to_path)
+    cookies[:archive_complete] = 'yes'
+    send_file(temp_zip_file, filename: "#{@videogame.name}.zip")
   end
 end

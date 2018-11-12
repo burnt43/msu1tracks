@@ -7,7 +7,7 @@
       \/ 
       = "#{Videogame.model_name.human}:"
       = @videogame.friendly_name
-    %a.card-text{href: download_music_tracks_videogame_path(@videogame)}
+    %a.card-text.download-archive{href: download_music_tracks_videogame_path(@videogame), download: true}
       = application_icon(:download, size: :lg)
       = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
       
@@ -22,6 +22,6 @@
           %td= music_track.filename
           %td= music_track.updated_at.strftime("%Y/%m/%d %H:%M")
           %td
-            %a{href: download_music_track_path(music_track)}
+            %a{href: download_music_track_path(music_track), download: true}
               = application_icon(:download, size: :lg)
               = "Download #{music_track.class.model_name.human}"
