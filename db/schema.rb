@@ -10,13 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_041635) do
+ActiveRecord::Schema.define(version: 2018_11_12_004802) do
 
   create_table "consoles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "friendly_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "msu1_pack_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "track_number", null: false
+    t.bigint "msu1_pack_id", null: false
+    t.bigint "msu1_pcm_track_id", null: false
+    t.bigint "msu1_patch_track_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["msu1_pack_id"], name: "index_msu1_pack_mappings_on_msu1_pack_id"
+    t.index ["msu1_patch_track_id"], name: "index_msu1_pack_mappings_on_msu1_patch_track_id"
+    t.index ["msu1_pcm_track_id"], name: "index_msu1_pack_mappings_on_msu1_pcm_track_id"
+  end
+
+  create_table "msu1_packs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "friendly_name", null: false
+    t.bigint "videogame_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["videogame_id"], name: "index_msu1_packs_on_videogame_id"
   end
 
   create_table "msu1_patch_tracks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|

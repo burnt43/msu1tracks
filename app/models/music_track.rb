@@ -1,4 +1,6 @@
 class MusicTrack < ApplicationRecord
+  include SyncFromYaml
+
   # associations
   belongs_to :videogame
   has_one :console, through: :videogame
