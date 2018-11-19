@@ -5,9 +5,11 @@ class Videogame < ApplicationRecord
   # associations
   belongs_to :console
   has_many :music_tracks
+  has_many :msu1_pcm_tracks
+  has_many :msu1_packs
 
   # scope
-  scope :latest_n_changed, ->(n) { joins(:music_tracks).group(:id).order("MAX(`#{MusicTrack.table_name}`.`updated_at`)").limit(n) }
+  scope :by_most_recent_music_track_updates, ->() { joins(:music_tracks).group(:id).order("MAX(`#{MusicTrack.table_name}`.`updated_at`)") }
 
   # instance methods
   def to_s

@@ -1,27 +1,72 @@
-.card.mt-2
-  .card-body
-    %h5.card-title 
-      = "#{Console.model_name.human}:"
-      %a{href: console_path(@videogame.console)}
-        = @videogame.console.friendly_name
-      \/ 
-      = "#{Videogame.model_name.human}:"
-      = @videogame.friendly_name
-    %a.card-text.download-archive{href: download_music_tracks_videogame_path(@videogame), download: true}
-      = application_icon(:download, size: :lg)
-      = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
-      
-  %table.table
-    %thead
-      %th= MusicTrack.human_attribute_name(:filename)
-      %th= I18n.t(:last_change)
-      %th= I18n.t(:download)
-    %tbody
-      - @videogame.music_tracks.order(filename: :asc).each do |music_track|
-        %tr
-          %td= music_track.filename
-          %td= music_track.updated_at.strftime("%Y/%m/%d %H:%M")
-          %td
-            %a{href: download_music_track_path(music_track), download: true}
-              = application_icon(:download, size: :lg)
-              = "Download #{music_track.class.model_name.human}"
+%nav{"aria-label" => "breadcrumb"}
+  %ol.breadcrumb
+    %li.breadcrumb-item
+      %a{href: console_path(@videogame.console)}= @videogame.console.friendly_name
+    %li.breadcrumb-item.active{"aria-current" => "page"}= @videogame.friendly_name
+
+- unless @videogame.msu1_pcm_tracks.empty?
+  .card.mt-2
+    .card-body
+      %h5.card-title 
+        = "#{Msu1PcmTrack.model_name.human.pluralize}"
+        %span.badge.badge-primary= @videogame.msu1_pcm_tracks.count
+      %a.card-text.download-archive{href: download_music_tracks_videogame_path(@videogame), download: true}
+        = application_icon(:download, size: :lg)
+        = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
+        
+    %table.table
+      %thead
+        %th= MusicTrack.human_attribute_name(:filename)
+        %th= I18n.t(:last_change)
+        %th= I18n.t(:download)
+      %tbody
+        - @videogame.msu1_pcm_tracks.order(filename: :asc).each do |music_track|
+          %tr
+            %td= music_track.filename
+            %td= music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+            %td
+              %a{href: download_music_track_path(music_track), download: true}
+                = application_icon(:download, size: :lg)
+                = "Download #{music_track.class.model_name.human}"
+- unless @videogame.msu1_packs.empty?
+  .card.mt-2
+    .card-body
+      %h5.card-title 
+        = "#{Msu1Pack.model_name.human.pluralize}"
+        %span.badge.badge-primary= @videogame.msu1_packs.count
+    %table.table
+      %thead
+        %th= Msu1Pack.human_attribute_name(:friendly_name)
+        %th= I18n.t(:last_change)
+        %th= I18n.t(:download)
+        %th
+      %tbody
+        - @videogame.msu1_packs.order(:friendly_name).each do |msu1_pack|
+          - info_row_id = "msu1_pack_info_row_#{msu1_pack.id}"
+          %tr
+            %td= msu1_pack.friendly_name
+            %td= msu1_pack.updated_at.strftime("%Y/%m/%d %H:%M")
+            %td
+              %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
+                = application_icon(:download, size: :lg)
+                = "Download #{msu1_pack.class.model_name.human}"
+            %td
+              %button.btn.btn-sm.btn-primary{type: "button", data: {toggle: "collapse", target: "##{info_row_id}"}, "aria-expanded" => "false", "aria-controls" => info_row_id}= "Toggle #{Msu1Pack::Mapping.model_name.human} Info"
+          %tr.no-top-border
+            %td{colspan: 4} 
+              .card.collapse{id: info_row_id}
+                %table.table
+                  %tbody
+                    - msu1_pack.mappings.each do |mapping|
+                      %tr
+                        %td= mapping.msu1_patch_track.track_number
+                        %td= mapping.msu1_patch_track.friendly_name
+                        %td= application_icon(:change, size: :lg)
+                        %td
+                          %a{href: videogame_path(mapping.msu1_pcm_track.videogame)}= mapping.msu1_pcm_track.videogame.friendly_name
+                        %td= mapping.msu1_pcm_track.filename
+                        %td
+                          %a{href: download_music_track_path(mapping.msu1_pcm_track), download: true}
+                            = application_icon(:download, size: :lg)
+                            = "Download #{mapping.msu1_pcm_track.class.model_name.human}"
+                  

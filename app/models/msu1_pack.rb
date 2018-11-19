@@ -8,6 +8,9 @@ class Msu1Pack < ApplicationRecord
   has_one :console, through: :videogame
   has_many :mappings, class_name: 'Msu1Pack::Mapping'
 
+  # scopes
+  scope :by_most_recent_updates, ->() { order(updated_at: :desc) }
+
   # instance methods
   def to_s
     "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m videogame.friendly_name:\033[0;35m#{self.videogame.friendly_name}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"

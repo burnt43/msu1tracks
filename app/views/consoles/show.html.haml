@@ -1,10 +1,16 @@
+%nav{"aria-label" => "breadcrumb"}
+  %ol.breadcrumb
+    %li.breadcrumb-item.active{"aria-current" => "page"}= @console.friendly_name
 .card.mt-2
   .card-body
-    %h5.card-title= "#{Console.model_name.human}: #{@console.friendly_name}"
+    %h5
+      = Videogame.model_name.human.pluralize
+      %span.badge.badge-primary= @console.videogames.count
   %table.table
     %thead
       %th= Videogame.human_attribute_name(:friendly_name)
-      %th= I18n.t(:last_change)
+      %th= Videogame.human_attribute_name(:msu1_pcm_tracks)
+      %th= Videogame.human_attribute_name(:msu1_packs)
       %th= I18n.t(:download)
     %tbody
       - @console.videogames.each do |videogame|
@@ -12,8 +18,11 @@
           %td
             %a{href: videogame_path(videogame)}= videogame.friendly_name
           %td
-            = videogame.most_recently_updated_music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+            %span.badge.badge-primary= videogame.msu1_pcm_tracks.count
           %td
-            %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
-              = application_icon(:download, size: :lg)
-              = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
+            %span.badge.badge-primary= videogame.msu1_packs.count
+          %td
+            - unless videogame.msu1_pcm_tracks.empty?
+              %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
+                = application_icon(:download, size: :lg)
+                = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"

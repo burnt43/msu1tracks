@@ -4,5 +4,6 @@ icons:
   music:    fa-music
   news:     fa-newspaper-o
   github:   fa-github
+  change:   fa-long-arrow-right
   models:
     console: fa-gamepad

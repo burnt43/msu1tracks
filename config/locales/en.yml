@@ -1,14 +1,16 @@
 en:
-  hello:       "Hello world"
-  last_change: 'Last Change'
-  download:    'Download'
+  hello:       Hello world
+  last_change: Last Change
+  download:    Download
   activerecord:
     models:
-      msu1_pcm_track: 'MSU-1 PCM Track'
-      msu1_pack:      'MSU-1 Song Pack'
+      msu1_pcm_track: MSU-1 PCM Track
+      msu1_pack:      MSU-1 Song Pack
     attributes:
       videogame:
-        friendly_name: Name
+        friendly_name:   Name
+        msu1_pcm_tracks: MSU-1 PCM Tracks
+        msu1_packs:      MSU-1 Song Packs
       music_track:
       msu1_pack:
         friendly_name: Name

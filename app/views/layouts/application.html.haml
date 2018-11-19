@@ -30,7 +30,7 @@
               = application_icon(Console, size: :lg)
               = Console.model_name.human.pluralize
             .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-              - Console.has_videogames_with_music_tracks.order(friendly_name: :asc).each do |console|
+              - Console.all.order(friendly_name: :asc).each do |console|
                 %a.dropdown-item{href: console_path(console)}= console.friendly_name
           %li.nav-item
             %a.nav-link{href: "https://github.com/burnt43/msu1tracks"}
@@ -43,8 +43,10 @@
           %form.form-inline.my-2.my-lg-0
             %input.form-control.mr-sm-2{type: "search", placeholder: "Search", "aria-label" => "Search"}
             %button.btn.btn-outline-success.my-2.my-sm-0{type: "submit"} Search
-    .container
-      = yield
+    .container-fluid
+      .row
+        .col-10.offset-1
+          = yield
     -#
       .container-fluid
         .row
