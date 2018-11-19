@@ -6,7 +6,7 @@
     %h5
       = Videogame.model_name.human.pluralize
       %span.badge.badge-primary= @console.videogames.count
-  %table.table
+  %table.table.table-sm
     %thead
       %th= Videogame.human_attribute_name(:friendly_name)
       %th= Videogame.human_attribute_name(:msu1_pcm_tracks)

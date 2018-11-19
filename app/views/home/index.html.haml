@@ -12,7 +12,7 @@
 .card.mt-2
   .card-body
     %h5.card-title= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
-  %table.table
+  %table.table.table-sm
     %thead
       %th
       %th= Videogame.human_attribute_name(:friendly_name)
@@ -31,7 +31,7 @@
 .card.mt-2
   .card-body
     %h5.card-title= "Lastest #{Msu1Pack.model_name.human.pluralize}"
-  %table.table
+  %table.table.table-sm
     %thead
       %th
       %th= Msu1Pack.human_attribute_name(:friendly_name)

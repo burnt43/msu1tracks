@@ -14,7 +14,7 @@
         = application_icon(:download, size: :lg)
         = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
         
-    %table.table
+    %table.table.table-sm
       %thead
         %th= MusicTrack.human_attribute_name(:filename)
         %th= I18n.t(:last_change)
@@ -34,7 +34,7 @@
       %h5.card-title 
         = "#{Msu1Pack.model_name.human.pluralize}"
         %span.badge.badge-primary= @videogame.msu1_packs.count
-    %table.table
+    %table.table.table-sm
       %thead
         %th= Msu1Pack.human_attribute_name(:friendly_name)
         %th= I18n.t(:last_change)
@@ -55,7 +55,7 @@
           %tr.no-top-border
             %td{colspan: 4} 
               .card.collapse{id: info_row_id}
-                %table.table
+                %table.table.table-sm
                   %tbody
                     - msu1_pack.mappings.each do |mapping|
                       %tr
