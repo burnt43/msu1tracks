@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_004802) do
+ActiveRecord::Schema.define(version: 2018_11_19_012529) do
 
   create_table "consoles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_004802) do
     t.bigint "videogame_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "filename_prefix", null: false
     t.index ["videogame_id"], name: "index_msu1_patches_on_videogame_id"
   end
 

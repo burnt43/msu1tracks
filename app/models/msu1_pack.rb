@@ -1,10 +1,12 @@
 class Msu1Pack < ApplicationRecord
   include SyncFromYaml
+  include ArchivedMusicTracks
 
   # associations
   belongs_to :videogame
 
   has_one :console, through: :videogame
+  has_many :mappings, class_name: 'Msu1Pack::Mapping'
 
   # instance methods
   def to_s
@@ -37,6 +39,19 @@ class Msu1Pack < ApplicationRecord
     }
   end
 
+  # ArchivedMusicTracks
+  alias_attribute :name_for_archived_music_tracks, :name
+
+  def archived_music_track_mapping
+    Hash[self.mappings.map {|mapping|
+      msu1_patch_track = mapping.msu1_patch_track
+      msu1_patch       = msu1_patch_track.msu1_patch
+      msu1_pcm_track   = mapping.msu1_pcm_track
+
+      ["#{msu1_patch.filename_prefix}-#{msu1_patch_track.track_number}.#{msu1_pcm_track.class.file_extension}", msu1_pcm_track.pathname.to_s]
+    }]
+  end
+
   # classes
   class Mapping < ApplicationRecord
     include SyncFromYaml
@@ -59,6 +74,8 @@ class Msu1Pack < ApplicationRecord
     }
 
     def self.sync_manifest_with_database
+      Msu1Pack.indexed_objects_for_yaml_sync(reload: true)
+      Msu1Patch::Track.indexed_objects_for_yaml_sync(reload: true)
       Msu1Pack::Mapping.indexed_objects_for_yaml_sync(reload: true)
 
       self.transaction {

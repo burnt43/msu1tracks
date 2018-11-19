@@ -12,6 +12,7 @@ consoles:
         msu1_patches:
           standard:
             friendly_name: Standard
+            filename_prefix: alttp_msu
             tracks:
               1:  
                 friendly_name: Triforce / Title Screen
@@ -81,126 +82,152 @@ consoles:
             friendly_name:  Legacy of the Wizard
             mapping:
               1: 
+                # Triforce / Title Screen
                 console:   nes
                 videogame: legacy_of_the_wizard
                 track:     0010_title_screen
               2: 
+                # Lightworld
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0013_near_home
               3: 
+                # Rain
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0001_dungeon_entrance
               4: 
+                # Dark World (Rabbit)
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0002_warriors_theme
               5: 
+                # Lost Woods
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0009_deaths_theme
               6: 
+                # Introduction
                 console:   nes
                 videogame: legacy_of_the_wizard
                 track:     0010_title_screen
               7: 
+                # Kakariko Village
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
-              8: 
-                console:   nes
-                videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0008_welcome
               9: 
+                # Dark World (Moon Pearl)
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0004_elfs_theme
               10: 
+                # Master Sword
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0009_deaths_theme
               11: 
+                # File Select Screen
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0007_worzen_family
               12: 
+                # Guards Attacking
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0011_dragon_slayers
               13: 
+                # Skull Woods / Dark Death Mountain
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0016_unknown_bonus_track
               14: 
+                # Minigame
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0012_guardian_of_the_crown
               15: 
+                # Title Screen
                 console:   nes
                 videogame: legacy_of_the_wizard
                 track:     0010_title_screen
               16: 
+                # Hyrule Castle
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0002_warriors_theme
               17: 
+                # Pendant Dungeon
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0001_dungeon_entrance
               18: 
+                # Cave 1
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0005_monsters_theme
               19: 
+                # Dungeon Cleared
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0007_worzen_family
               20: 
+                # Sanctuary
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0014_preparations
               21: 
+                # Boss Fight
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0006_king_dragon_keela
               22: 
+                # Crystal Dungeon
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0003_wizards_theme
               23: 
+                # Fortune Teller
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0012_guardian_of_the_crown
               24: 
+                # Cave 2
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0005_monsters_theme
               25: 
+                # Zelda Rescued
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0007_worzen_family
               26: 
+                # Crystal Acquired
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0007_worzen_family
               27: 
+                # Fairy
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0014_preparations
               28: 
+                # Ganon's Theme Only
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0016_unknown_bonus_track
               29: 
+                # Ganon Appears
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0016_unknown_bonus_track
               30: 
+                # Face to Face + Ganon's Theme
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0016_unknown_bonus_track
               31: 
+                # Ganon Battle
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0010_title_screen
+                track:     0016_unknown_bonus_track

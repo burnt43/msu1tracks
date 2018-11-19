@@ -12,6 +12,7 @@ class Msu1Patch < ApplicationRecord
 
   # SyncFromYaml
   define_active_record_to_yaml_attributes_map :friendly_name, :friendly_name
+  define_active_record_to_yaml_attributes_map :filename_prefix, :filename_prefix
 
   self.indexed_objects_for_yaml_sync = ->{
     self.all_indexed_by({console: :name}, {videogame: :name}, :name)

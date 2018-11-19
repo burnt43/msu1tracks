@@ -28,3 +28,23 @@
           %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
             = application_icon(:download, size: :lg)
             = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
+.card.mt-2
+  .card-body
+    %h5.card-title= "Lastest #{Msu1Pack.model_name.human.pluralize}"
+  %table.table
+    %thead
+      %th
+      %th= Msu1Pack.human_attribute_name(:friendly_name)
+      %th= Msu1Pack.human_attribute_name(:videogame)
+      %th= I18n.t(:last_change)
+      %th= I18n.t(:download)
+    %tbody
+      - Msu1Pack.all.each_with_index do |msu1_pack, index|
+        %td= index+1
+        %td= msu1_pack.friendly_name
+        %td= msu1_pack.videogame.friendly_name
+        %td
+        %td
+          %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
+            = application_icon(:download, size: :lg)
+            = "Download #{Msu1Pack.model_name.human}"

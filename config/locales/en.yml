@@ -5,7 +5,10 @@ en:
   activerecord:
     models:
       msu1_pcm_track: 'MSU-1 PCM Track'
+      msu1_pack:      'MSU-1 Song Pack'
     attributes:
       videogame:
         friendly_name: Name
       music_track:
+      msu1_pack:
+        friendly_name: Name
