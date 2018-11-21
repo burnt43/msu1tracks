@@ -9,11 +9,21 @@ class Msu1Pack < ApplicationRecord
   has_many :mappings, class_name: 'Msu1Pack::Mapping'
 
   # scopes
-  scope :by_most_recent_updates, ->() { order(updated_at: :desc) }
+  scope :ordered_by_having_most_recently_updated_mappings, ->() { 
+    joins(:mappings).group(:id).order("MAX(`#{Msu1Pack::Mapping.table_name}`.`updated_at`) DESC") 
+  }
 
   # instance methods
   def to_s
     "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m videogame.friendly_name:\033[0;35m#{self.videogame.friendly_name}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"
+  end
+
+  def most_recently_updated_mapping
+    if self.mappings.loaded?
+      self.mappings.max_by {|mapping| mapping.updated_at}
+    else
+      self.mappings.order(updated_at: :desc).first
+    end
   end
 
   # SyncFromYaml
@@ -31,10 +41,15 @@ class Msu1Pack < ApplicationRecord
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
         (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
           (videogame_config.dig('msu1_packs') || Hash.new).each {|msu1_pack_name, msu1_pack_config|
+            attributes = {
+              name:      msu1_pack_name,
+              videogame: Videogame.indexed_objects_for_yaml_sync.dig(console_name, videogame_name),
+            }
+
             if msu1_pack = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_name)
-              msu1_pack.update_attributes_from_yaml(msu1_pack_config)
+              msu1_pack.update_attributes_from_yaml(attributes, msu1_pack_config)
             else
-              self.create_from_yaml({name: msu1_pack_name, videogame: Videogame.indexed_objects_for_yaml_sync.dig(console_name, videogame_name)}, msu1_pack_config)
+              self.create_from_yaml(attributes, msu1_pack_config)
             end
           }
         }
@@ -64,7 +79,11 @@ class Msu1Pack < ApplicationRecord
     belongs_to :msu1_pcm_track
     belongs_to :msu1_patch_track, class_name: 'Msu1Patch::Track'
 
-    has_one :console, through: :videogame
+    has_one :videogame, through: :msu1_pack
+    has_one :console,   through: :videogame
+
+    # delegations
+    delegate :track_number, to: :msu1_patch_track
 
     # instance methods
     def to_s
@@ -87,15 +106,16 @@ class Msu1Pack < ApplicationRecord
           (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
             (videogame_config.dig('msu1_packs') || Hash.new).each {|msu1_pack_name, msu1_pack_config|
               (msu1_pack_config.dig('mapping') || Hash.new).each {|mapping_track_number, mapping_config|
+                attributes = {
+                  msu1_pack:        Msu1Pack.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_name), 
+                  msu1_patch_track: Msu1Patch::Track.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_config['patch'], mapping_track_number),
+                  msu1_pcm_track:   Msu1PcmTrack.indexed_objects_for_yaml_sync.dig(mapping_config['console'], mapping_config['videogame'], mapping_config['track']),
+                }
+
                 if msu1_patch_mapping = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_name, mapping_track_number)
-                  msu1_patch_mapping.update_attributes_from_yaml(mapping_config)
+                  msu1_patch_mapping.update_attributes_from_yaml(attributes, mapping_config)
                 else
-                  foo = self.create_from_yaml({
-                    track_number:     mapping_track_number, 
-                    msu1_pack:        Msu1Pack.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_name), 
-                    msu1_patch_track: Msu1Patch::Track.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_config['patch'], mapping_track_number),
-                    msu1_pcm_track:   Msu1PcmTrack.indexed_objects_for_yaml_sync.dig(mapping_config['console'], mapping_config['videogame'], mapping_config['track']),
-                  }, mapping_config)
+                  self.create_from_yaml(attributes, mapping_config)
                 end
               }
             }

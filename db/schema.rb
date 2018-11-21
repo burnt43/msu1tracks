@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_012529) do
+ActiveRecord::Schema.define(version: 2018_11_20_182436) do
 
   create_table "consoles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_012529) do
   end
 
   create_table "msu1_pack_mappings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.string "track_number", null: false
     t.bigint "msu1_pack_id", null: false
     t.bigint "msu1_pcm_track_id", null: false
     t.bigint "msu1_patch_track_id", null: false

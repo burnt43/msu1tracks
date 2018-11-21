@@ -4,6 +4,11 @@ consoles:
     videogames:
       legacy_of_the_wizard:
         friendly_name: Legacy of the Wizard
+  n64:
+    friendly_name: N64
+    videogames:
+      mystical_ninja_starring_goemon:
+        friendly_name: Mystical Ninja Starring Goemon
   snes:
     friendly_name: SNES
     videogames:
@@ -190,7 +195,7 @@ consoles:
                 # Fortune Teller
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0012_guardian_of_the_crown
+                track:     0009_deaths_theme
               24: 
                 # Cave 2
                 console:   nes
@@ -215,17 +220,17 @@ consoles:
                 # Ganon's Theme Only
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0016_unknown_bonus_track
+                track:     0009_deaths_theme
               29: 
                 # Ganon Appears
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0016_unknown_bonus_track
+                track:     0009_deaths_theme
               30: 
                 # Face to Face + Ganon's Theme
                 console:   nes
                 videogame: legacy_of_the_wizard
-                track:     0016_unknown_bonus_track
+                track:     0009_deaths_theme
               31: 
                 # Ganon Battle
                 console:   nes

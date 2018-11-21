@@ -26,10 +26,15 @@ class Msu1Patch < ApplicationRecord
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
         (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
           (videogame_config.dig('msu1_patches') || Hash.new).each {|msu1_patch_name, msu1_patch_config|
+            attributes = {
+              name:      msu1_patch_name, 
+              videogame: Videogame.indexed_objects_for_yaml_sync.dig(console_name, videogame_name),
+            }
+
             if msu1_patch = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_patch_name)
-              msu1_patch.update_attributes_from_yaml(msu1_patch_config)
+              msu1_patch.update_attributes_from_yaml(attributes, msu1_patch_config)
             else
-              self.create_from_yaml({name: msu1_patch_name, videogame: Videogame.indexed_objects_for_yaml_sync.dig(console_name, videogame_name)}, msu1_patch_config)
+              self.create_from_yaml(attributes, msu1_patch_config)
             end
           }
         }
@@ -62,10 +67,15 @@ class Msu1Patch < ApplicationRecord
           (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
             (videogame_config.dig('msu1_patches') || Hash.new).each {|msu1_patch_name, msu1_patch_config|
               (msu1_patch_config.dig('tracks') || Hash.new).each {|msu1_patch_track_track_number, msu1_patch_track_config|
+                attributes = {
+                  track_number: msu1_patch_track_track_number, 
+                  msu1_patch:   Msu1Patch.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_patch_name),
+                }
+
                 if msu1_patch_track = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_patch_name, msu1_patch_track_track_number)
-                  msu1_patch_track.update_attributes_from_yaml(msu1_patch_track_config)
+                  msu1_patch_track.update_attributes_from_yaml(attributes, msu1_patch_track_config)
                 else
-                  self.create_from_yaml({track_number: msu1_patch_track_track_number, msu1_patch: Msu1Patch.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_patch_name)}, msu1_patch_track_config)
+                  self.create_from_yaml(attributes, msu1_patch_track_config)
                 end
               }
             }

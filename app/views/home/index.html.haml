@@ -14,38 +14,44 @@
     %h5.card-title= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
   %table.table.table-sm
     %thead
-      %th
-      %th= Videogame.human_attribute_name(:friendly_name)
-      %th= I18n.t(:last_change)
-      %th= I18n.t(:download)
+      %th.w-5
+      %th= Videogame.model_name.human
+      %th.w-10= I18n.t(:last_change)
+      %th.w-10= Videogame.human_attribute_name(:created_at)
+      %th.w-25
     %tbody
-      - Videogame.by_most_recent_music_track_updates.limit(10).each_with_index do |videogame, index|
-        %td= index+1
-        %td
-          %a{href: videogame_path(videogame)}= videogame.friendly_name
-        %td= videogame.most_recently_updated_music_track.updated_at.strftime("%Y/%m/%d %H:%M")
-        %td
-          %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
-            = application_icon(:download, size: :lg)
-            = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
+      - Videogame.ordered_by_having_most_recently_updated_msu1_pcm_tracks.limit(10).each_with_index do |videogame, index|
+        %tr
+          %td= index+1
+          %td
+            %a{href: videogame_path(videogame)}= videogame.friendly_name
+          %td= videogame.most_recently_updated_msu1_pcm_track.updated_at.strftime("%Y/%m/%d %H:%M")
+          %td= videogame.created_at.strftime("%Y/%m/%d %H:%M")
+          %td
+            %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
+              = application_icon(:download, size: :lg)
+              = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
 .card.mt-2
   .card-body
     %h5.card-title= "Lastest #{Msu1Pack.model_name.human.pluralize}"
   %table.table.table-sm
     %thead
-      %th
-      %th= Msu1Pack.human_attribute_name(:friendly_name)
-      %th= Msu1Pack.human_attribute_name(:videogame)
-      %th= I18n.t(:last_change)
-      %th= I18n.t(:download)
+      %th.w-5
+      %th= Videogame.model_name.human
+      %th= "#{Msu1Pack.model_name.human} #{Msu1Pack.human_attribute_name(:friendly_name)}"
+      %th.w-10= I18n.t(:last_change)
+      %th.w-10= Msu1Pack.human_attribute_name(:created_at)
+      %th.w-25
     %tbody
-      - Msu1Pack.by_most_recent_updates.limit(10).each_with_index do |msu1_pack, index|
-        %td= index+1
-        %td= msu1_pack.friendly_name
-        %td
-          %a{href: videogame_path(msu1_pack.videogame)}= msu1_pack.videogame.friendly_name
-        %td= msu1_pack.updated_at.strftime("%Y/%m/%d %H:%M")
-        %td
-          %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
-            = application_icon(:download, size: :lg)
-            = "Download #{Msu1Pack.model_name.human}"
+      - Msu1Pack.ordered_by_having_most_recently_updated_mappings.limit(10).each_with_index do |msu1_pack, index|
+        %tr
+          %td= index+1
+          %td
+            %a{href: videogame_path(msu1_pack.videogame)}= msu1_pack.videogame.friendly_name
+          %td= msu1_pack.friendly_name
+          %td= msu1_pack.most_recently_updated_mapping.updated_at.strftime("%Y/%m/%d %H:%M")
+          %td= msu1_pack.created_at.strftime("%Y/%m/%d %H:%M")
+          %td
+            %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
+              = application_icon(:download, size: :lg)
+              = "Download #{Msu1Pack.model_name.human}"

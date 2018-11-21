@@ -48,12 +48,28 @@ module SyncFromYaml
   end
 
   # instance methods
-  def update_attributes_from_yaml(yaml)
-    active_record_attributes_to_update = Hash[self.class.active_record_to_yaml_attributes_map.select {|active_record_attribute, yaml_attribute|
-      self.send(active_record_attribute) != yaml[yaml_attribute]
-    }.map {|active_record_attribute, yaml_attribute|
-      [active_record_attribute, yaml[yaml_attribute]]
-    }]
+  def update_attributes_from_yaml(attributes={}, yaml={})
+    # puts "[JCARSON] - yaml: #{yaml.to_s}"
+    active_record_attributes_to_update = Hash.new
+
+    attributes.each {|active_record_attribute, new_value|
+      current_value = self.send(active_record_attribute) 
+
+      if current_value != new_value
+        active_record_attributes_to_update[active_record_attribute] = new_value
+      end
+    }
+
+    self.class.active_record_to_yaml_attributes_map.each {|active_record_attribute, yaml_attribute|
+      current_value = self.send(active_record_attribute) 
+      new_value     = yaml[yaml_attribute]
+
+      if current_value != new_value
+        active_record_attributes_to_update[active_record_attribute] = new_value
+      end
+    }
+
+    # puts "[JCARSON] - #{active_record_attributes_to_update.to_s}"
 
     unless active_record_attributes_to_update.empty?
       Rails.logger.info "\033[0;32mupdating\033[0;0m #{self.to_s} -> #{active_record_attributes_to_update.to_s}"

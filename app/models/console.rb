@@ -3,7 +3,7 @@ class Console < ApplicationRecord
 
   # associations
   has_many :videogames
-  has_many :music_tracks, through: :videogames
+  has_many :msu1_pcm_tracks, through: :videogames
 
   # scope
   scope :has_videogames_with_music_tracks, -> { self.joins(videogames: [:music_tracks]).group(:id).having("COUNT(*) > 1") }
@@ -24,10 +24,14 @@ class Console < ApplicationRecord
     self.transaction {
       # add/update
       (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
+        attributes = {
+          name: console_name,
+        }
+
         if console = self.indexed_objects_for_yaml_sync[console_name]
-          console.update_attributes_from_yaml(console_config)
+          console.update_attributes_from_yaml(attributes, console_config)
         else
-          self.create_from_yaml({name: console_name}, console_config)
+          self.create_from_yaml(attributes, console_config)
         end
       }
     }

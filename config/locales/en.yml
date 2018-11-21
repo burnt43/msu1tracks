@@ -1,6 +1,6 @@
 en:
   hello:       Hello world
-  last_change: Last Change
+  last_change: Time of Last Change
   download:    Download
   activerecord:
     models:
@@ -9,8 +9,10 @@ en:
     attributes:
       videogame:
         friendly_name:   Name
+        created_at:      Time of Creation
         msu1_pcm_tracks: MSU-1 PCM Tracks
         msu1_packs:      MSU-1 Song Packs
       music_track:
       msu1_pack:
         friendly_name: Name
+        created_at:    Time of Creation
