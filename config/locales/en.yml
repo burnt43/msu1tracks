@@ -4,14 +4,14 @@ en:
   download:    Download
   activerecord:
     models:
-      msu1_pcm_track: MSU-1 PCM Track
-      msu1_pack:      MSU-1 Song Pack
+      msu1_pcm_track: MSU-1 Track
+      msu1_pack:      MSU-1 Pack
     attributes:
       videogame:
         friendly_name:   Name
         created_at:      Time of Creation
-        msu1_pcm_tracks: MSU-1 PCM Tracks
-        msu1_packs:      MSU-1 Song Packs
+        msu1_pcm_tracks: MSU-1 Tracks
+        msu1_packs:      MSU-1 Packs
       music_track:
       msu1_pack:
         friendly_name: Name

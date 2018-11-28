@@ -57,7 +57,7 @@
               .card.collapse{id: info_row_id}
                 %table.table.table-sm
                   %tbody
-                    - msu1_pack.mappings.each do |mapping|
+                    - msu1_pack.mappings.sort{|a,b| a.msu1_patch_track.track_number <=> b.msu1_patch_track.track_number}.each do |mapping|
                       %tr
                         %td= mapping.msu1_patch_track.track_number
                         %td= mapping.msu1_patch_track.friendly_name

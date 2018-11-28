@@ -121,6 +121,11 @@ consoles:
                 console:   nes
                 videogame: legacy_of_the_wizard
                 track:     0008_welcome
+              8:
+                # Portal
+                console:   nes
+                videogame: legacy_of_the_wizard
+                track:     0015_treasure_chest
               9: 
                 # Dark World (Moon Pearl)
                 console:   nes
