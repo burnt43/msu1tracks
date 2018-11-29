@@ -25,8 +25,9 @@
           %td= index+1
           %td
             %a{href: videogame_path(videogame)}= videogame.friendly_name
-          %td= videogame.most_recently_updated_msu1_pcm_track.updated_at.strftime("%Y/%m/%d %H:%M")
-          %td= videogame.created_at.strftime("%Y/%m/%d %H:%M")
+            %span.badge.badge-primary= videogame.msu1_pcm_tracks.length
+          %td= duration_ago_span(videogame.most_recently_updated_msu1_pcm_track.updated_at)
+          %td= duration_ago_span(videogame.created_at)
           %td
             %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
               = application_icon(:download, size: :lg)
@@ -48,9 +49,10 @@
           %td= index+1
           %td
             %a{href: videogame_path(msu1_pack.videogame)}= msu1_pack.videogame.friendly_name
+            %span.badge.badge-primary= msu1_pack.videogame.msu1_packs.length
           %td= msu1_pack.friendly_name
-          %td= msu1_pack.most_recently_updated_mapping.updated_at.strftime("%Y/%m/%d %H:%M")
-          %td= msu1_pack.created_at.strftime("%Y/%m/%d %H:%M")
+          %td= duration_ago_span(msu1_pack.most_recently_updated_mapping.updated_at)
+          %td= duration_ago_span(msu1_pack.created_at)
           %td
             %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
               = application_icon(:download, size: :lg)

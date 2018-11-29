@@ -23,7 +23,7 @@
         - @videogame.msu1_pcm_tracks.order(filename: :asc).each do |music_track|
           %tr
             %td= music_track.filename
-            %td= music_track.updated_at.strftime("%Y/%m/%d %H:%M")
+            %td= duration_ago_span(music_track.updated_at)
             %td
               %a{href: download_music_track_path(music_track), download: true}
                 = application_icon(:download, size: :lg)
@@ -45,7 +45,7 @@
           - info_row_id = "msu1_pack_info_row_#{msu1_pack.id}"
           %tr
             %td= msu1_pack.friendly_name
-            %td= msu1_pack.updated_at.strftime("%Y/%m/%d %H:%M")
+            %td= duration_ago_span(msu1_pack.updated_at)
             %td
               %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
                 = application_icon(:download, size: :lg)
