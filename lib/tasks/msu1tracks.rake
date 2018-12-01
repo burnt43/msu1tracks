@@ -42,5 +42,5 @@ namespace :msu1tracks do
     MusicTrack.children.each(&:sync_files_with_database)
   end
 
-  task :sync_all => [:sync_consoles, :sync_videogames, :sync_msu1_patches, :sync_msu1_patch_tracks, :sync_msu1_packs, :sync_msu1_pack_mappings, :sync_music_files_with_database]
+  task :sync_all => [:sync_consoles, :sync_videogames, :sync_msu1_patches, :sync_msu1_patch_tracks, :sync_music_files_with_database, :sync_msu1_packs, :sync_msu1_pack_mappings]
 end
