@@ -241,3 +241,199 @@ consoles:
                 console:   nes
                 videogame: legacy_of_the_wizard
                 track:     0016_unknown_bonus_track
+          mystical_ninja_starring_goemon_0001:
+            patch:          standard
+            friendly_name:  Mystical Ninja Starring Goemon
+            mapping:
+              1: 
+                # Triforce / Title Screen
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0001_theme_of_mystical_ninja
+              2: 
+                # Lightworld
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0007_the_journey_begins_on_mt_fuji_road
+                #track:     0009x_kai_highway_other_intro_1
+                #track:     0009x_kai_highway_other_intro_2
+                #track:     0019_yamato
+                #track:     0026_sunset_want_you
+              3: 
+                # Rain
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0025_our_kidnapped_kids_
+              4: 
+                # Dark World (Rabbit)
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0044_the_deep_flickering_white_shadow
+              5: 
+                # Lost Woods
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0020_ancient_bamboo
+              6: 
+                # Introduction
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0017_secret_ninja_agent
+              7: 
+                # Kakariko Village
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0004_flowery_oedo_the_lost_village
+                #track:     0005_buy_or_leave
+                #track:     0031_farm_village_legend
+                #track:     0043_the_melting_snow_goes_along_with_the_festival
+              8:
+                # Portal
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0099_sfx_kce_logo
+              9: 
+                # Dark World (Moon Pearl)
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0048_hot_blooded_man_c
+                #track:     0048_hot_blooded_man_b
+                #track:     0048_hot_blooded_man_a
+                #track:     0032_udon_kotarou
+              10: 
+                # Master Sword
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0035_battery_of_the_heart
+              11: 
+                # File Select Screen
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0021_heartbeat_bossa_nova
+              12: 
+                # Guards Attacking
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0041_crisis
+              13: 
+                # Skull Woods / Dark Death Mountain
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0024_stairs_of_regret
+              14: 
+                # Minigame
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0039_oni_oni_redezvous
+                #track:     0009x_apparition_in_the_middle_of_the_lake_without_intro
+                #track:     0027_fallen_food_mini_ebisu
+                #track:     0042_bucchigiri_banzai
+                #track:     0046_waterfall_of_kegon
+                #track:     0049_apparition_in_the_middle_of_the_lake
+              15: 
+                # Title Screen
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0002_i_am_impact
+              16: 
+                # Hyrule Castle
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0009_rescue_the_feudal_lord_b
+                #track:     0009_rescue_the_feudal_lord_a
+              17: 
+                # Pendant Dungeon
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0028_childhood_toy_behind_you_c
+                #track:     0028_childhood_toy_behind_you_b
+                #track:     0028_childhood_toy_behind_you_a
+              18: 
+                # Cave 1
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0022_blue_sky_blue_dragon_c
+                #track:     0022_blue_sky_blue_dragon_b
+                #track:     0022_blue_sky_blue_dragon_a
+                #track:     0008_wait_a_sec_im_coming
+                #track:     0033_within_the_burning_sands
+                #track:     0036_depths_of_darkness
+                #track:     0045_come_baby_come
+              19: 
+                # Dungeon Cleared
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0016_another_win_for_us
+              20: 
+                # Sanctuary
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0050_holy_ground_pemopemo
+                #track:     0018_a_zen_spirit_burns_crimson
+              21: 
+                # Boss Fight
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0029_heartbreak_corlin
+                #track:     0015_warriors
+                #track:     0038_ghost_attack
+                #track:     0055_little_baby_sleepin
+              22: 
+                # Crystal Dungeon
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0037_use_the_ice_kunai_on_the_foxs_fire_c
+                #track:     0037_use_the_ice_kunai_on_the_foxs_fire_b
+                #track:     0037_use_the_ice_kunai_on_the_foxs_fire_a
+              23: 
+                # Fortune Teller
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0006_secrets_of_old_man_plasma
+                #track:     0010_voluptuous_cauliflower
+              24: 
+                # Cave 2
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0033_within_the_burning_sands
+              25: 
+                # Zelda Rescued
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0013_the_lord_and_princess_yuki
+              26: 
+                # Crystal Acquired
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0054_gorgeous_my_stage
+                #track:     0023_twilight_koryuta
+              27: 
+                # Fairy
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0047_airy_mermaid
+                #track:     0034_gods_giant_tree
+              28: 
+                # Ganon's Theme Only
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0030_domineering_march
+                #track:     0009x_dark_de_bad_na_easy_yo_without_intro
+              29: 
+                # Ganon Appears
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0009x_dark_de_bad_na_easy_yo_without_intro
+              30: 
+                # Face to Face + Ganon's Theme
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0009x_dark_de_bad_na_easy_yo_without_intro
+              31: 
+                # Ganon Battle
+                console:   n64
+                videogame: mystical_ninja_starring_goemon
+                track:     0053_goe_goe_spark
+                #track:     0051_kabuking
+              # credits?
+              # 0052_sogen_street
