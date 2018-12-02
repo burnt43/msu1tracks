@@ -279,6 +279,9 @@ consoles:
                 console:   n64
                 videogame: mystical_ninja_starring_goemon
                 track:     0017_secret_ninja_agent
+                #track:     0003_it_happened_on_an_ordinary_day_part_1
+                #track:     0003_it_happened_on_an_ordinary_day_part_2
+                #track:     0003_it_happened_on_an_ordinary_day_part_4
               7: 
                 # Kakariko Village
                 console:   n64
@@ -352,9 +355,9 @@ consoles:
                 # Cave 1
                 console:   n64
                 videogame: mystical_ninja_starring_goemon
-                track:     0022_blue_sky_blue_dragon_c
+                track:     0022_blue_sky_blue_dragon_a
                 #track:     0022_blue_sky_blue_dragon_b
-                #track:     0022_blue_sky_blue_dragon_a
+                #track:     0022_blue_sky_blue_dragon_c
                 #track:     0008_wait_a_sec_im_coming
                 #track:     0033_within_the_burning_sands
                 #track:     0036_depths_of_darkness
@@ -375,6 +378,8 @@ consoles:
                 console:   n64
                 videogame: mystical_ninja_starring_goemon
                 track:     0029_heartbreak_corlin
+                #track:     0011_im_warning_you_youll_get_burned
+                #track:     0014_a_disaster
                 #track:     0015_warriors
                 #track:     0038_ghost_attack
                 #track:     0055_little_baby_sleepin
@@ -405,14 +410,15 @@ consoles:
                 # Crystal Acquired
                 console:   n64
                 videogame: mystical_ninja_starring_goemon
-                track:     0054_gorgeous_my_stage
+                track:     0012_easy_victory_get_a_way
+                #track:     0054_gorgeous_my_stage
                 #track:     0023_twilight_koryuta
               27: 
                 # Fairy
                 console:   n64
                 videogame: mystical_ninja_starring_goemon
-                track:     0047_airy_mermaid
-                #track:     0034_gods_giant_tree
+                track:     0034_gods_giant_tree
+                #track:     0047_airy_mermaid
               28: 
                 # Ganon's Theme Only
                 console:   n64
