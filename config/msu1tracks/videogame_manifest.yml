@@ -9,6 +9,11 @@ consoles:
     videogames:
       mystical_ninja_starring_goemon:
         friendly_name: Mystical Ninja Starring Goemon
+  psx:
+    friendly_name: Playstation
+    videogames:
+      chrono_cross:
+        friendly_name: Chrono Cross
   snes:
     friendly_name: SNES
     videogames:
