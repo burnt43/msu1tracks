@@ -1,16 +1,14 @@
-.card.mt-2
+.card.mt-2.border-primary
+  .card-header.text-white.bg-primary
+    %strong News
   .card-body
-    %h5.card-title News
-    .media
+    .media.p-2.mt-2.border.border-dark
       = application_icon(:news, size: 'lg', class: 'mr-3')
       .media-body
         %h5.mt-0 2018-12-02 Normalization Update
         %p
           I have changed the normalization for all the tracks from -22 LUFS to -19 LUFS. I think this works better, at least on my SD2SNES.
-.card.mt-2
-  .card-body
-    %h5.card-title News
-    .media
+    .media.p-2.mt-2.border.border-dark
       = application_icon(:news, size: 'lg', class: 'mr-3')
       .media-body
         %h5.mt-0 2018-11-04 Site Launch
@@ -18,9 +16,9 @@
           The purpose of this site is to store videogame music that I have converted to be able to play on a SNES or a SNES Emulator using the MSU-1 feature. Right now, I only have Legacy of the Wizard, an old NES game I had, converted to MSU-1 PCMs. I have a
           %a{href: "https://github.com/burnt43/msu1tracks/issues/2"} feature
           in the works that you can take an MSU-1 patch and mix and match whatever song in that game to a file I have hosted on this site. This means you'll be able to map the Light World song from Link to the Past to a song from Videogame A and then you can map the Dark World song to some song from Videogame B. You'll be able to create MSU-1 packs on the fly.
-.card.mt-2
-  .card-body
-    %h5.card-title= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
+.card.mt-2.border-primary
+  .card-header.text-white.bg-primary
+    %strong= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
   %table.table.table-sm
     %thead
       %th.w-5
@@ -41,9 +39,9 @@
             %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
               = application_icon(:download, size: :lg)
               = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
-.card.mt-2
-  .card-body
-    %h5.card-title= "Lastest #{Msu1Pack.model_name.human.pluralize}"
+.card.mt-2.border-primary
+  .card-header.text-white.bg-primary
+    %strong= "Lastest #{Msu1Pack.model_name.human.pluralize}"
   %table.table.table-sm
     %thead
       %th.w-5

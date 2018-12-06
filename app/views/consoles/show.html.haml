@@ -1,11 +1,11 @@
 %nav{"aria-label" => "breadcrumb"}
   %ol.breadcrumb
     %li.breadcrumb-item.active{"aria-current" => "page"}= @console.friendly_name
-.card.mt-2
-  .card-body
-    %h5
+.card.mt-2.border-primary
+  .card-header.text-white.bg-primary
+    %strong
       = Videogame.model_name.human.pluralize
-      %span.badge.badge-primary= @console.videogames.count
+      %span.badge.badge-light= @console.videogames.count
   %table.table.table-sm
     %thead
       %th= Videogame.human_attribute_name(:friendly_name)

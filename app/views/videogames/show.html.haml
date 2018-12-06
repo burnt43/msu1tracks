@@ -5,11 +5,12 @@
     %li.breadcrumb-item.active{"aria-current" => "page"}= @videogame.friendly_name
 
 - unless @videogame.msu1_pcm_tracks.empty?
-  .card.mt-2
-    .card-body
-      %h5.card-title 
+  .card.mt-2.border-primary
+    .card-header.text-white.bg-primary
+      %strong
         = "#{Msu1PcmTrack.model_name.human.pluralize}"
-        %span.badge.badge-primary= @videogame.msu1_pcm_tracks.count
+        %span.badge.badge-light= @videogame.msu1_pcm_tracks.count
+    .card-body
       %a.card-text.download-archive{href: download_music_tracks_videogame_path(@videogame), download: true}
         = application_icon(:download, size: :lg)
         = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
@@ -29,11 +30,11 @@
                 = application_icon(:download, size: :lg)
                 = "Download #{music_track.class.model_name.human}"
 - unless @videogame.msu1_packs.empty?
-  .card.mt-2
-    .card-body
-      %h5.card-title 
+  .card.mt-2.border-primary
+    .card-header.text-white.bg-primary
+      %strong
         = "#{Msu1Pack.model_name.human.pluralize}"
-        %span.badge.badge-primary= @videogame.msu1_packs.count
+        %span.badge.badge-light= @videogame.msu1_packs.count
     %table.table.table-sm
       %thead
         %th= Msu1Pack.human_attribute_name(:friendly_name)
