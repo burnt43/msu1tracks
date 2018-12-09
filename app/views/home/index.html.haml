@@ -1,8 +1,8 @@
-.card.mt-2.border-primary
+.card.mt-2
   .card-header.text-white.bg-primary
     = application_icon(:news, size: 'lg', class: 'mr-3')
     News
-  .card-body
+  .card-body.bg-light
     .media.p-2.mt-2.border.border-dark
       = application_icon(:news, size: 'lg', class: 'mr-3')
       .media-body
@@ -17,44 +17,44 @@
           The purpose of this site is to store videogame music that I have converted to be able to play on a SNES or a SNES Emulator using the MSU-1 feature. Right now, I only have Legacy of the Wizard, an old NES game I had, converted to MSU-1 PCMs. I have a
           %a{href: "https://github.com/burnt43/msu1tracks/issues/2"} feature
           in the works that you can take an MSU-1 patch and mix and match whatever song in that game to a file I have hosted on this site. This means you'll be able to map the Light World song from Link to the Past to a song from Videogame A and then you can map the Dark World song to some song from Videogame B. You'll be able to create MSU-1 packs on the fly.
-.card.mt-2.border-primary
+.card.mt-2
   .card-header.text-white.bg-primary
     = application_icon(Videogame, size: :lg)
     = "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
-  %table.table.table-sm
-    %thead.table-dark
+  %table.table.table-sm.mb-0
+    %thead.table-dark.text-secondary
       %th.w-5
       %th
         = application_icon(Videogame, size: :lg)
         = Videogame.model_name.human
-      %th.w-20
+      %th.w-15
         = application_icon(:clock, size: :lg)
         = I18n.t(:last_change)
-      %th.w-20
+      %th.w-15
         = application_icon(:clock, size: :lg)
         = Videogame.human_attribute_name(:created_at)
       %th.w-25
-    %tbody
+        = application_icon(:download, size: :lg)
+        = I18n.t(:download)
+    %tbody.bg-light
       - Videogame.ordered_by_having_most_recently_updated_msu1_pcm_tracks.limit(10).each_with_index do |videogame, index|
         %tr
           %td= index+1
           %td
             %a{href: videogame_path(videogame)}
-              = application_icon(Videogame, size: :lg)
               = videogame.friendly_name
             %span.badge.badge-secondary= videogame.msu1_pcm_tracks.length
           %td= duration_ago_span(videogame.most_recently_updated_msu1_pcm_track.updated_at)
           %td= duration_ago_span(videogame.created_at)
           %td
             %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}
-              = application_icon(:download, size: :lg)
               = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
-.card.mt-2.border-primary
+.card.mt-2
   .card-header.text-white.bg-primary
     = application_icon(Msu1Pack, size: :lg)
     = "Lastest #{Msu1Pack.model_name.human.pluralize}"
-  %table.table.table-sm
-    %thead.table-dark
+  %table.table.table-sm.mb-0
+    %thead.table-dark.text-secondary
       %th.w-5
       %th
         = application_icon(Msu1Pack, size: :lg)
@@ -69,21 +69,20 @@
         = application_icon(:clock, size: :lg)
         = Msu1Pack.human_attribute_name(:created_at)
       %th.w-25
-    %tbody
+        = application_icon(:download, size: :lg)
+        = I18n.t(:download)
+    %tbody.bg-light
       - Msu1Pack.ordered_by_having_most_recently_updated_mappings.limit(10).each_with_index do |msu1_pack, index|
         %tr
           %td= index+1
           %td
-            = application_icon(Msu1Pack, size: :lg)
             = msu1_pack.friendly_name
           %td
             %a{href: videogame_path(msu1_pack.videogame)}
-              = application_icon(Videogame, size: :lg)
               = msu1_pack.videogame.friendly_name
             %span.badge.badge-secondary= msu1_pack.videogame.msu1_packs.length
           %td= duration_ago_span(msu1_pack.most_recently_updated_mapping.updated_at)
           %td= duration_ago_span(msu1_pack.created_at)
           %td
             %a.download-archive{href: download_msu1_pack_path(msu1_pack), download: true}
-              = application_icon(:download, size: :lg)
               = "Download #{Msu1Pack.model_name.human}"
