@@ -5,5 +5,9 @@ icons:
   news:     fa-newspaper-o
   github:   fa-github
   change:   fa-long-arrow-right
+  clock:    fa-clock-o
   models:
-    console: fa-gamepad
+    console:        fa-gamepad
+    videogame:      fa-desktop
+    msu1_pack:      fa-archive
+    msu1_pcm_track: fa-music

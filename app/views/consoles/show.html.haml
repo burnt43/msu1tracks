@@ -3,24 +3,34 @@
     %li.breadcrumb-item.active{"aria-current" => "page"}= @console.friendly_name
 .card.mt-2.border-primary
   .card-header.text-white.bg-primary
-    %strong
-      = Videogame.model_name.human.pluralize
-      %span.badge.badge-light= @console.videogames.count
+    = application_icon(Videogame, size: :lg)
+    = Videogame.model_name.human.pluralize
+    %span.badge.badge-secondary= @console.videogames.count
   %table.table.table-sm
-    %thead
-      %th= Videogame.human_attribute_name(:friendly_name)
-      %th= Videogame.human_attribute_name(:msu1_pcm_tracks)
-      %th= Videogame.human_attribute_name(:msu1_packs)
-      %th= I18n.t(:download)
+    %thead.table-dark
+      %th
+        = application_icon(Videogame, size: :lg)
+        = Videogame.human_attribute_name(:friendly_name)
+      %th
+        = application_icon(Msu1PcmTrack, size: :lg)
+        = Videogame.human_attribute_name(:msu1_pcm_tracks)
+      %th
+        = application_icon(Msu1Pack, size: :lg)
+        = Videogame.human_attribute_name(:msu1_packs)
+      %th
+        = application_icon(:download, size: :lg)
+        = I18n.t(:download)
     %tbody
       - @console.videogames.each do |videogame|
         %tr
           %td
-            %a{href: videogame_path(videogame)}= videogame.friendly_name
+            %a{href: videogame_path(videogame)}
+              = application_icon(Videogame, size: :lg)
+              = videogame.friendly_name
           %td
-            %span.badge.badge-primary= videogame.msu1_pcm_tracks.count
+            %span.badge.badge-secondary= videogame.msu1_pcm_tracks.count
           %td
-            %span.badge.badge-primary= videogame.msu1_packs.count
+            %span.badge.badge-secondary= videogame.msu1_packs.count
           %td
             - unless videogame.msu1_pcm_tracks.empty?
               %a.download-archive{href: download_music_tracks_videogame_path(videogame), download: true}

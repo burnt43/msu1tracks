@@ -1,6 +1,7 @@
 .card.mt-2.border-primary
   .card-header.text-white.bg-primary
-    %strong News
+    = application_icon(:news, size: 'lg', class: 'mr-3')
+    News
   .card-body
     .media.p-2.mt-2.border.border-dark
       = application_icon(:news, size: 'lg', class: 'mr-3')
@@ -18,21 +19,30 @@
           in the works that you can take an MSU-1 patch and mix and match whatever song in that game to a file I have hosted on this site. This means you'll be able to map the Light World song from Link to the Past to a song from Videogame A and then you can map the Dark World song to some song from Videogame B. You'll be able to create MSU-1 packs on the fly.
 .card.mt-2.border-primary
   .card-header.text-white.bg-primary
-    %strong= "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
+    = application_icon(Videogame, size: :lg)
+    = "#{Videogame.model_name.human.pluralize} With Lastest #{Msu1PcmTrack.model_name.human.pluralize}"
   %table.table.table-sm
-    %thead
+    %thead.table-dark
       %th.w-5
-      %th= Videogame.model_name.human
-      %th.w-10= I18n.t(:last_change)
-      %th.w-10= Videogame.human_attribute_name(:created_at)
+      %th
+        = application_icon(Videogame, size: :lg)
+        = Videogame.model_name.human
+      %th.w-20
+        = application_icon(:clock, size: :lg)
+        = I18n.t(:last_change)
+      %th.w-20
+        = application_icon(:clock, size: :lg)
+        = Videogame.human_attribute_name(:created_at)
       %th.w-25
     %tbody
       - Videogame.ordered_by_having_most_recently_updated_msu1_pcm_tracks.limit(10).each_with_index do |videogame, index|
         %tr
           %td= index+1
           %td
-            %a{href: videogame_path(videogame)}= videogame.friendly_name
-            %span.badge.badge-primary= videogame.msu1_pcm_tracks.length
+            %a{href: videogame_path(videogame)}
+              = application_icon(Videogame, size: :lg)
+              = videogame.friendly_name
+            %span.badge.badge-secondary= videogame.msu1_pcm_tracks.length
           %td= duration_ago_span(videogame.most_recently_updated_msu1_pcm_track.updated_at)
           %td= duration_ago_span(videogame.created_at)
           %td
@@ -41,23 +51,36 @@
               = "Download All #{Msu1PcmTrack.model_name.human.pluralize}"
 .card.mt-2.border-primary
   .card-header.text-white.bg-primary
-    %strong= "Lastest #{Msu1Pack.model_name.human.pluralize}"
+    = application_icon(Msu1Pack, size: :lg)
+    = "Lastest #{Msu1Pack.model_name.human.pluralize}"
   %table.table.table-sm
-    %thead
+    %thead.table-dark
       %th.w-5
-      %th= Videogame.model_name.human
-      %th= "#{Msu1Pack.model_name.human} #{Msu1Pack.human_attribute_name(:friendly_name)}"
-      %th.w-10= I18n.t(:last_change)
-      %th.w-10= Msu1Pack.human_attribute_name(:created_at)
+      %th
+        = application_icon(Msu1Pack, size: :lg)
+        = "#{Msu1Pack.model_name.human} #{Msu1Pack.human_attribute_name(:friendly_name)}"
+      %th
+        = application_icon(Videogame, size: :lg)
+        = Videogame.model_name.human
+      %th.w-15
+        = application_icon(:clock, size: :lg)
+        = I18n.t(:last_change)
+      %th.w-15
+        = application_icon(:clock, size: :lg)
+        = Msu1Pack.human_attribute_name(:created_at)
       %th.w-25
     %tbody
       - Msu1Pack.ordered_by_having_most_recently_updated_mappings.limit(10).each_with_index do |msu1_pack, index|
         %tr
           %td= index+1
           %td
-            %a{href: videogame_path(msu1_pack.videogame)}= msu1_pack.videogame.friendly_name
-            %span.badge.badge-primary= msu1_pack.videogame.msu1_packs.length
-          %td= msu1_pack.friendly_name
+            = application_icon(Msu1Pack, size: :lg)
+            = msu1_pack.friendly_name
+          %td
+            %a{href: videogame_path(msu1_pack.videogame)}
+              = application_icon(Videogame, size: :lg)
+              = msu1_pack.videogame.friendly_name
+            %span.badge.badge-secondary= msu1_pack.videogame.msu1_packs.length
           %td= duration_ago_span(msu1_pack.most_recently_updated_mapping.updated_at)
           %td= duration_ago_span(msu1_pack.created_at)
           %td
