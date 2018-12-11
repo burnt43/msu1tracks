@@ -17,6 +17,45 @@
 @import "font-awesome";
 @import "bootstrap_theme";
 @import "bootstrap";
-@import "tables";
 @import "bootstrap_like";
-@import "bootstrap_overrides";
+
+.msu1tracks-card {
+  @extend .mt-2, .border-primary;
+  > .card-header {
+    @extend .text-white, .bg-primary, .py-2;
+  }
+  > .card-body {
+    @extend .p-1, .bg-light;
+    table.table {
+      @extend .table-sm, .table-striped, .mb-0, .border, .border-dark;
+      > thead {
+        @extend .thead-dark;
+        > tr {
+          > th {
+            @extend .text-secondary;
+          }
+        }
+      }
+      > tbody {
+        @extend .bg-light;
+        > tr {
+          > td {
+            @extend .border-0;
+          }
+        }
+      }
+    }
+    > .media {
+      @extend .p-2, .mt-2, .border, .border-dark;
+      > .media-body {
+        > h5 {
+          @extend .mt-0;
+        }
+      }
+    }
+  }
+}
+
+.msu1tracks-breadcrumb {
+  @extend .border, .border-primary;
+}
