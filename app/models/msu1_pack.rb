@@ -31,8 +31,8 @@ class Msu1Pack < ApplicationRecord
   # SyncFromYaml
   define_active_record_to_yaml_attributes_map :friendly_name, :friendly_name
 
-  self.indexed_objects_for_yaml_sync = ->{
-    self.all_indexed_by({console: :name}, {videogame: :name}, :name)
+  self.indexed_objects_for_yaml_sync = proc {
+    all_indexed_by({ console: :name }, { videogame: :name }, :name)
   }
 
   def self.sync_manifest_with_database
