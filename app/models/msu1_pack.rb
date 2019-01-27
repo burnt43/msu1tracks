@@ -17,7 +17,10 @@ class Msu1Pack < ApplicationRecord
 
   # instance methods
   def to_s
-    "#<#{self.class.name} id:\033[0;35m#{self.id}\033[0;0m videogame.friendly_name:\033[0;35m#{self.videogame.friendly_name}\033[0;0m friendly_name:\033[0;35m#{self.friendly_name}\033[0;0m>"
+    "#<#{self.class.name} " \
+    "id:\033[0;35m#{id}\033[0;0m " \
+    "videogame.friendly_name:\033[0;35m#{videogame.friendly_name}\033[0;0m " \
+    "friendly_name:\033[0;35m#{friendly_name}\033[0;0m>"
   end
 
   def most_recently_updated_mapping
