@@ -19,10 +19,10 @@ class Msu1Pack < ApplicationRecord
   end
 
   def most_recently_updated_mapping
-    if self.mappings.loaded?
-      self.mappings.max_by {|mapping| mapping.updated_at}
+    if mappings.loaded?
+      mappings.max_by(&:updated_at)
     else
-      self.mappings.order(updated_at: :desc).first
+      mappings.order(updated_at: :desc).first
     end
   end
 
