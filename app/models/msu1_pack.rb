@@ -9,9 +9,11 @@ class Msu1Pack < ApplicationRecord
   has_many :mappings, class_name: 'Msu1Pack::Mapping'
 
   # scopes
-  scope :ordered_by_having_most_recently_updated_mappings, ->() { 
-    joins(:mappings).group(:id).order("MAX(`#{Msu1Pack::Mapping.table_name}`.`updated_at`) DESC") 
-  }
+  scope :ordered_by_having_most_recently_updated_mappings, lambda do
+    joins(:mappings)
+      .group(:id)
+      .order("MAX(`#{Msu1Pack::Mapping.table_name}`.`updated_at`) DESC")
+  end
 
   # instance methods
   def to_s
