@@ -38,25 +38,38 @@ class Msu1Pack < ApplicationRecord
   def self.sync_manifest_with_database
     Msu1Pack.indexed_objects_for_yaml_sync(reload: true)
 
-    self.transaction {
+    transaction do
       # add/update
-      (self.yaml_manifest.dig('consoles') || Hash.new).each {|console_name, console_config|
-        (console_config.dig('videogames') || Hash.new).each {|videogame_name, videogame_config|
-          (videogame_config.dig('msu1_packs') || Hash.new).each {|msu1_pack_name, msu1_pack_config|
+      (yaml_manifest.dig('consoles') || {})
+        .each do |console_name, console_config|
+        (console_config.dig('videogames') || {})
+          .each do |videogame_name, videogame_config|
+          (videogame_config.dig('msu1_packs') || {})
+            .each do |msu1_pack_name, msu1_pack_config|
             attributes = {
-              name:      msu1_pack_name,
-              videogame: Videogame.indexed_objects_for_yaml_sync.dig(console_name, videogame_name),
+              name: msu1_pack_name,
+              videogame: Videogame.indexed_objects_for_yaml_sync.dig(
+                console_name,
+                videogame_name
+              )
             }
 
-            if msu1_pack = self.indexed_objects_for_yaml_sync.dig(console_name, videogame_name, msu1_pack_name)
-              msu1_pack.update_attributes_from_yaml(attributes, msu1_pack_config)
+            if (msu1_pack = indexed_objects_for_yaml_sync.dig(
+              console_name,
+              videogame_name,
+              msu1_pack_name
+            ))
+              msu1_pack.update_attributes_from_yaml(
+                attributes,
+                msu1_pack_config
+              )
             else
-              self.create_from_yaml(attributes, msu1_pack_config)
+              create_from_yaml(attributes, msu1_pack_config)
             end
-          }
-        }
-      }
-    }
+          end
+        end
+      end
+    end
   end
 
   # ArchivedMusicTracks
