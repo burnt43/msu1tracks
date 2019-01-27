@@ -63,13 +63,15 @@ class Msu1Pack < ApplicationRecord
   alias_attribute :name_for_archived_music_tracks, :name
 
   def archived_music_track_mapping
-    Hash[self.mappings.map {|mapping|
+    Hash[mappings.map do |mapping|
       msu1_patch_track = mapping.msu1_patch_track
       msu1_patch       = msu1_patch_track.msu1_patch
       msu1_pcm_track   = mapping.msu1_pcm_track
 
-      ["#{msu1_patch.filename_prefix}-#{msu1_patch_track.track_number}.#{msu1_pcm_track.class.file_extension}", msu1_pcm_track.pathname.to_s]
-    }]
+      ["#{msu1_patch.filename_prefix}-#{msu1_patch_track.track_number}." \
+       "#{msu1_pcm_track.class.file_extension}",
+       msu1_pcm_track.pathname.to_s]
+    end]
   end
 
   # classes
