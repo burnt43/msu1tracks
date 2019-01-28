@@ -448,3 +448,201 @@ consoles:
                 #track:     0051_kabuking
               # credits?
               # 0052_sogen_street
+          chrono_cross_0001:
+            patch:          standard
+            friendly_name:  Chrono Cross
+            mapping:
+              1: 
+                # Triforce / Title Screen
+                console:   psx
+                videogame: chrono_cross
+                track:     0101_chrono_cross_times_scar
+              2: 
+                # Lightworld
+                console:   psx
+                videogame: chrono_cross
+                track:     0211_chrono_main_theme
+                # track:     0104_times_grasslands_home_world
+                # track:     0121_voyage_another_world
+                # track:     0205_voyage_home_world
+              3: 
+                # Rain
+                console:   psx
+                videogame: chrono_cross
+                track:     0123_death_volcano
+              4: 
+                # Dark World (Rabbit)
+                console:   psx
+                videogame: chrono_cross
+                track:     0214_isle_of_the_damned
+              5: 
+                # Lost Woods
+                console:   psx
+                videogame: chrono_cross
+                track:     0114_shadow_forest
+                # track:     0105_dancing_the_tokage
+              6: 
+                # Introduction
+                console:   psx
+                videogame: chrono_cross
+                track:     0310_frozen_flame
+                # track:     0110_lost_fragments
+                # track:     0217_previously_lost_hopes
+                # track:     0306_the_star_stealing_girl
+              7: 
+                # Kakariko Village
+                console:   psx
+                videogame: chrono_cross
+                track:     0118_another_guldove
+                # track:     0103_home_village_arni
+                # track:     0108_another_arni_village
+                # track:     0112_another_termina
+                # track:     0206_home_guldove
+              8:
+                # Portal
+                console:   psx
+                videogame: chrono_cross
+                track:     0201a_start_of_the_dream_intro_phrase_only
+              9: 
+                # Dark World (Moon Pearl)
+                console:   psx
+                videogame: chrono_cross
+                track:     0107_dream_of_the_shore_bordering_another_world
+              10: 
+                # Master Sword
+                console:   psx
+                videogame: chrono_cross
+                track:     0226a_magical_dreamers_the_wind_stars_and_waves_intro
+                # track:     0210_nap
+              11: 
+                # File Select Screen
+                console:   psx
+                videogame: chrono_cross
+                track:     0113_leaving_the_body
+              12: 
+                # Guards Attacking
+                console:   psx
+                videogame: chrono_cross
+                track:     0220_gale
+              13: 
+                # Skull Woods / Dark Death Mountain
+                console:   psx
+                videogame: chrono_cross
+                track:     0119_hydra_marshes
+              14: 
+                # Minigame
+                console:   psx
+                videogame: chrono_cross
+                track:     0208_zelbess
+                # track:     0213_optimism
+              15: 
+                # Title Screen
+                console:   psx
+                videogame: chrono_cross
+                track:     0216_people_seized_with_life
+              16: 
+                # Hyrule Castle
+                console:   psx
+                videogame: chrono_cross
+                track:     0204_dragonrider
+                # track:     0203_home_termina
+              17: 
+                # Pendant Dungeon
+                console:   psx
+                videogame: chrono_cross
+                track:     0302_chronopolis
+                # track:     0215_dead_sea_tower_of_ruin
+                # track:     0218_earth_dragons_island
+              18: 
+                # Cave 1
+                console:   psx
+                videogame: chrono_cross
+                track:     0111_drowning_valley
+                # track:     0115_viper_manor
+                # track:     0117_lost_child_of_time
+                # track:     0122_phantom_ship
+                # track:     0308_dragons_prayer
+              19: 
+                # Dungeon Cleared
+                console:   psx
+                videogame: chrono_cross
+                track:     0116a_victory_springs_gift_intro_only
+              20: 
+                # Sanctuary
+                console:   psx
+                videogame: chrono_cross
+                track:     0202_cleft_of_dimension
+                # track:     0109_he_sang_of_feeling
+              21: 
+                # Boss Fight
+                console:   psx
+                videogame: chrono_cross
+                track:     0102_the_brink_of_death
+              22: 
+                # Crystal Dungeon
+                console:   psx
+                videogame: chrono_cross
+                track:     0303_fates_gods_of_destiny
+                # track:     0219_gaias_navel
+                # track:     0212_predicament
+                # track:     0124_ancient_dragons_fort
+              23: 
+                # Fortune Teller
+                console:   psx
+                videogame: chrono_cross
+                track:     0209_the_big_admirable_mysterious_sleight_of_hand_group
+              24: 
+                # Cave 2
+                console:   psx
+                videogame: chrono_cross
+                track:     0115_viper_manor
+              25: 
+                # Zelda Rescued
+                console:   psx
+                videogame: chrono_cross
+                track:     0116a_victory_springs_gift_intro_only
+              26: 
+                # Crystal Acquired
+                console:   psx
+                videogame: chrono_cross
+                track:     0116a_victory_springs_gift_intro_only
+              27: 
+                # Fairy
+                console:   psx
+                videogame: chrono_cross
+                track:       0301_garden_of_the_gods
+                # track:     0304_jellyfish_sea
+                # track:     0106_reminiscence_feelings_not_erased
+                # track:     0120_dreams_creation
+                # track:     0207_home_marbule
+                # track:     0222_another_marbule
+                # track:     0316_fragments_of_dreams
+              28: 
+                # Ganon's Theme Only
+                console:   psx
+                videogame: chrono_cross
+                track:     0305_orphan_of_flame
+                # track:     0309_tower_of_stars
+              29: 
+                # Ganon Appears
+                console:   psx
+                videogame: chrono_cross
+                track:     0305_orphan_of_flame
+              30: 
+                # Face to Face + Ganon's Theme
+                console:   psx
+                videogame: chrono_cross
+                track:     0305_orphan_of_flame
+              31: 
+                # Ganon Battle
+                console:   psx
+                videogame: chrono_cross
+                track:     0311_dragon_god
+              # credits
+              #   0307_time_of_the_dreamwatch
+              #   0312_into_a_time_of_darkness.wav  
+              #   0226b_magical_dreamers_the_wind_stars_and_waves_main
+              #   0221_victory_summers_cry
+              #   0116_victory_springs_gift
+              #   0313_life_faraway_promise
+              #   0315_radical_dreamers_without_taking_the_jewel_vocal
